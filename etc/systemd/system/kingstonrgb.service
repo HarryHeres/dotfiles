@@ -1,0 +1,9 @@
+[Unit]
+Description=Kingston DRAM RGB settings
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/set_ram_rgb.sh
+
+[Install]
+WantedBy=graphical.target

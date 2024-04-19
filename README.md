@@ -1,2 +1,2 @@
 # dotfiles
-My dotfiles for all of my used devices
+My dotfiles for Arch Linux + Hyprland configuration
