@@ -134,33 +134,33 @@ return {
                     }
                 end,
 
-                ['pylsp'] = function()
-                    require 'lspconfig'.pylsp.setup {
-                        settings = {
-                            pylsp = {
-                                plugins = {
-                                    pycodestyle = {
-                                        enabled = false,
-                                        maxLineLength = 999,
-                                    },
-                                    pylint = {
-                                        enabled = false
-                                    },
-                                    pyflakes = {
-                                        enabled = false
-                                    }
-                                },
+                -- ['pylsp'] = function()
+                --     require 'lspconfig'.pylsp.setup {
+                --         settings = {
+                --             pylsp = {
+                --                 plugins = {
+                --                     pycodestyle = {
+                --                         enabled = false,
+                --                         maxLineLength = 999,
+                --                     },
+                --                     pylint = {
+                --                         enabled = false
+                --                     },
+                --                     pyflakes = {
+                --                         enabled = false
+                --                     }
+                --                 },
 
-                                jedi_completion = {
-                                    fuzzy = false,
-                                    include_class_objects = true,
-                                    include_function_objects = true,
-                                    eager = true
-                                }
-                            }
-                        }
-                    }
-                end,
+                --                 jedi_completion = {
+                --                     fuzzy = false,
+                --                     include_class_objects = true,
+                --                     include_function_objects = true,
+                --                     eager = true
+                --                 }
+                --             }
+                --         }
+                --     }
+                -- end,
 
                 ['pyright'] = function()
                     require 'lspconfig'.pyright.setup {
@@ -261,42 +261,3 @@ return {
         })
     end
 }
-
---[[
-lsp.set_preferences({
-          suggest_lsp_servers = true,
-          sign_icons = {
-            error = 'E',
-            warn = 'W',
-            hint = 'H',
-            info = 'I'
-          }
-        })
-
-local lsp = require("lsp-zero")
-
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-  'bashls',
-  'clangd',
-  'cmake',
-  'cssls',
-  'eslint',
-  'html',
-  'intelephense',
-  'lemminx',
-  'lua_ls',
-  'marksman',
-  'pyright',
-  'rust_analyzer',
-  'tailwindcss',
-  'texlab',
-  'tsserver',
-  'yamlls'
-})
-
--- Fix Undefined global 'vim'
-lsp.nvim_workspace()
-]]
---

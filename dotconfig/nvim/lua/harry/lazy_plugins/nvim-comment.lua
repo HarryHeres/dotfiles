@@ -11,9 +11,9 @@ return {
             -- Should key mappings be created
             create_mappings = true,
             -- Normal mode mapping left hand side
-            line_mapping = "<C-/>",
+            line_mapping = "gcc",
             -- Visual/Operator mapping left hand side
-            operator_mapping = "<C-S-/>",
+            operator_mapping = "gc",
             -- text object mapping, comment chunk,,
             comment_chunk_text_object = "ic",
         })
