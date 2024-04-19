@@ -3,5 +3,5 @@ import = ["~/.config/alacritty/gruvbox-material.toml",
 ]
 
 [font]
-normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
+normal = {family = "FiraMono Nerd Font", style = "Regular"}
 size = 11.0

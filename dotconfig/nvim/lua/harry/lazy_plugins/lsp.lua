@@ -44,7 +44,7 @@ return {
                 'lemminx',
                 'lua_ls',
                 'marksman',
-                'pyright',
+                'pylsp',
                 'rust_analyzer',
                 'tailwindcss',
                 'texlab',
@@ -134,53 +134,53 @@ return {
                     }
                 end,
 
-                -- ['pylsp'] = function()
-                --     require 'lspconfig'.pylsp.setup {
-                --         settings = {
-                --             pylsp = {
-                --                 plugins = {
-                --                     pycodestyle = {
-                --                         enabled = false,
-                --                         maxLineLength = 999,
-                --                     },
-                --                     pylint = {
-                --                         enabled = false
-                --                     },
-                --                     pyflakes = {
-                --                         enabled = false
-                --                     }
-                --                 },
-
-                --                 jedi_completion = {
-                --                     fuzzy = false,
-                --                     include_class_objects = true,
-                --                     include_function_objects = true,
-                --                     eager = true
-                --                 }
-                --             }
-                --         }
-                --     }
-                -- end,
-
-                ['pyright'] = function()
-                    require 'lspconfig'.pyright.setup {
+                ['pylsp'] = function()
+                    require 'lspconfig'.pylsp.setup {
                         settings = {
-                            python = {
-                                analysis = {
-                                    extra_paths = {
-                                        "/opt/3dslicer/bin/",
-                                        "/opt/3dslicer/bin/Python",
-                                        "/opt/3dslicer/lib",
-                                        "/opt/3dslicer/lib/Python/lib/python3.9",
-                                        "/opt/3dslicer/lib/QtPlugins",
-                                        "/opt/3dslicer/lib/Slicer-5.4",
-                                        "/opt/3dslicer/bin/Python/vtkmodules"
+                            pylsp = {
+                                plugins = {
+                                    pycodestyle = {
+                                        enabled = false,
+                                        maxLineLength = 999,
+                                    },
+                                    pylint = {
+                                        enabled = false
+                                    },
+                                    pyflakes = {
+                                        enabled = false
                                     }
+                                },
+
+                                jedi_completion = {
+                                    fuzzy = false,
+                                    include_class_objects = true,
+                                    include_function_objects = true,
+                                    eager = true
                                 }
                             }
                         }
                     }
                 end,
+
+                -- ['pyright'] = function()
+                --     require 'lspconfig'.pyright.setup {
+                --         settings = {
+                --             python = {
+                --                 analysis = {
+                --                     extra_paths = {
+                --                         "/opt/3dslicer/bin/",
+                --                         "/opt/3dslicer/bin/Python",
+                --                         "/opt/3dslicer/lib",
+                --                         "/opt/3dslicer/lib/Python/lib/python3.9",
+                --                         "/opt/3dslicer/lib/QtPlugins",
+                --                         "/opt/3dslicer/lib/Slicer-5.4",
+                --                         "/opt/3dslicer/bin/Python/vtkmodules"
+                --                     }
+                --                 }
+                --             }
+                --         }
+                --     }
+                -- end,
 
                 -- ['rust_analyzer'] = function()
                 --     require 'lspconfig'.rust_analyzer.setup({})
