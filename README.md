@@ -1,2 +1,2 @@
 # dotfiles
-My dotfiles for all of my used devices
+Configuration for my Macbook Pro 16
