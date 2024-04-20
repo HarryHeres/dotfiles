@@ -92,14 +92,19 @@ cmd + shift - k : yabai -m window --warp north
 cmd + shift - l : yabai -m window --warp east
 
 # swap managed window
-cmd + alt - h : yabai -m window --space prev; yabai -m space --focus prev
-cmd + alt - l : yabai -m window --space next; yabai -m space --focus next
+cmd + alt - h : yabai -m window --space prev; yabai -m space --focus prev;
+cmd + alt - l : yabai -m window --space next; yabai -m space --focus next;
 
 # increase window size
 cmd + shift + ctrl - h : yabai -m window --resize left:-20:0
 cmd + shift + ctrl - j : yabai -m window --resize top:0:-20
 cmd + shift + ctrl - k : yabai -m window --resize top:0:20
 cmd + shift + ctrl - l : yabai -m window --resize right:20:0
+
+cmd + ctrl - h : yabai -m space --focus prev 
+cmd + ctrl - l : yabai -m space --focus next
+
+cmd - m : yabai -m window --toggle zoom-fullscreen
 
 # fast space focsu
 # cmd - 1 : yabai -m space --focus 1
