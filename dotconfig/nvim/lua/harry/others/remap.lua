@@ -28,7 +28,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
---vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("v", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -45,9 +44,9 @@ vim.api.nvim_set_keymap("n", "<C-S-l>", ":vertical resize +5<CR>", { noremap = t
 
 -- Debugging shortcuts
 function showScopes()
-    local widgets = require('dap.ui.widgets')
-    local sidebar = widgets.sidebar(widgets.scopes)
-    sidebar.open()
+	local widgets = require('dap.ui.widgets')
+	local sidebar = widgets.sidebar(widgets.scopes)
+	sidebar.open()
 end
 
 vim.api.nvim_set_keymap('n', '<C-B>', "<cmd>lua require'dap'.toggle_breakpoint()<CR>", { noremap = true })
@@ -62,3 +61,6 @@ vim.api.nvim_set_keymap('n', '<leader>h', ":Telescope neoclip<CR>", { noremap = 
 
 -- LSP Diagnostic
 vim.keymap.set("n", "<leader>D", function() require("trouble").toggle() end)
+
+-- Tmux Sessionizer
+vim.keymap.set("n", "<A-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")

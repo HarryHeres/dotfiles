@@ -10,9 +10,10 @@ alias pip="python -m pip"
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home"
 alias java=$JAVA_HOME/bin/java
-alias ssh="kitten ssh"
+# alias ssh="kitten ssh" 
 
 
+export PATH=$PATH:~/.local/bin
 export PATH=$PATH:$JAVA_HOME/bin
 export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools/
 export PATH=$PATH:/opt/homebrew/bin
@@ -26,3 +27,5 @@ export CXX="g++-13"
 export CPLUS_INCLUDE_PATH="/opt/homebrew/include:/Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include:/opt/homebrew/opt/opencl-clhpp-headers/include"
 export lara_dev="lara_dev"
 export LARA_DEV="lara_dev"
+
+eval "$(fzf --zsh)"

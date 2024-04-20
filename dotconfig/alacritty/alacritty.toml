@@ -9,3 +9,4 @@ size = 15.0
 [window]
 option_as_alt = "OnlyLeft"
 startup_mode = "Maximized"
+opacity = 0.99 # MacOS mission control bugfix
