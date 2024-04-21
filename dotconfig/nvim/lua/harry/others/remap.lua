@@ -60,4 +60,7 @@ vim.api.nvim_set_keymap('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>", { 
 vim.api.nvim_set_keymap('n', '<leader>h', ":Telescope neoclip<CR>", { noremap = true })
 
 -- LSP Diagnostic
-vim.keymap.set("n", "<leader>D", function() require("trouble").toggle() end)
+vim.keymap.set("n", "<leader>D", function() require("trouble").toggle("workspace_diagnostics") end)
+
+-- Tmux sessionizer
+vim.keymap.set("n", "<A-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")

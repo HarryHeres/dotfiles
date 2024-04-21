@@ -17,6 +17,7 @@ rm -rf ./$USR_FOLDER
 mkdir $CONFIG_FOLDER 
 
 mkdir -p $LOCAL_FOLDER/share/applications
+mkdir -p $LOCAL_FOLDER/bin
 
 mkdir $VAR_FOLDER
 
@@ -59,5 +60,8 @@ cp -r /etc/libvirt/hooks/* ./$ETC_FOLDER/libvirt/hooks
 
 cp /etc/pacman.d/mirrorlist ./$ETC_FOLDER
 
-cp /etc/systemd/system/kingstonrgb.service $ETC_FOLDER/systemd/system
-cp /usr/share/set_ram_rgb.sh $USR_FOLDER/share
+cp /etc/systemd/system/kingstonrgb.service ./$ETC_FOLDER/systemd/system
+cp /usr/share/set_ram_rgb.sh ./$USR_FOLDER/share
+
+cp ~/.local/bin/tmux-sessionizer.sh ./$LOCAL_FOLDER/bin
+cp ~/.tmux.conf ./$HOME_FOLDER

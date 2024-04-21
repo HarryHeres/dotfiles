@@ -74,6 +74,7 @@ return {
 
                 ['clangd'] = function()
                     require 'lspconfig'.clangd.setup {
+                        capabilities = capabilities,
                         cmd = { "clangd", "--header-insertion=never" },
                         filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cl" },
                     }
@@ -94,12 +95,14 @@ return {
 
                 ['intelephense'] = function()
                     require 'lspconfig'.intelephense.setup {
+                        capabilities = capabilities,
                         global_storage_path = "~/.local/share/nvim"
                     }
                 end,
 
                 ['lemminx'] = function()
                     require 'lspconfig'.lemminx.setup {
+                        capabilities = capabilities,
                         settings = {
                             format = {
                                 enabled = true,
@@ -115,6 +118,7 @@ return {
 
                 ['marksman'] = function()
                     require 'lspconfig'.marksman.setup {
+                        capabilities = capabilities,
                         filetypes = { "markdown", "md" },
                         sigle_file_support = true
                     }
@@ -125,6 +129,7 @@ return {
                     local omnisharp_bin = "/home/harry/.local/share/nvim/mason/bin/omnisharp"
 
                     require 'lspconfig'.omnisharp.setup {
+                        capabilities = capabilities,
                         cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
 
                         enable_editorconfig_support = true,
@@ -136,6 +141,7 @@ return {
 
                 ['pylsp'] = function()
                     require 'lspconfig'.pylsp.setup {
+                        capabilities = capabilities,
                         settings = {
                             pylsp = {
                                 plugins = {
@@ -204,6 +210,7 @@ return {
 
 
                     require('lspconfig').texlab.setup({
+                        capabilities = capabilities,
                         filetypes = { "tex", "bib" },
 
                         settings = {
@@ -248,16 +255,17 @@ return {
                 { name = 'buffer' },
             })
         })
+
         vim.diagnostic.config({
             virtual_text = true,
-            float = {
-                focusable = false,
-                style = "minimal",
-                border = "rounded",
-                source = "always",
-                header = "",
-                prefix = "",
-            },
+            signs = true,
         })
+
+        -- Diagnostic signs
+        local signs = { Error = " ", Warn = "", Hint = " ", Info = " " }
+        for type, icon in pairs(signs) do
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+        end
     end
 }
