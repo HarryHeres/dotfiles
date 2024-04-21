@@ -253,7 +253,7 @@ return {
 				{ name = 'luasnip' }, -- For luasnip users.
 				{ name = 'buffer' },
 				{ name = 'path' },
-				{ name = 'cmdline' },
+				-- { name = 'cmdline' },
 				{ name = 'nvim-lua' },
 			})
 		})
