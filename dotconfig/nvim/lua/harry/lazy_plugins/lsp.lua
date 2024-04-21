@@ -28,6 +28,7 @@ return {
             cmp_lsp.default_capabilities()
         )
 
+
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
         require("fidget").setup({})
@@ -251,8 +252,10 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
-            }, {
+                { name = 'path' },
                 { name = 'buffer' },
+                { name = 'cmdline' },
+                { name = 'nvim-lua' },
             })
         })
 
