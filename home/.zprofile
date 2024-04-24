@@ -7,8 +7,8 @@ alias pip="python -m pip"
 
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@$11/11.0.20"
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.9"
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home"
 alias java=$JAVA_HOME/bin/java
 # alias ssh="kitten ssh" 
 
