@@ -110,7 +110,7 @@ return {
 								},
 								logs = {
 									client = true,
-									file = "/home/.../lsp4xml.log"
+									file = "~/.local/state/nvim/lsp4xml.log"
 								},
 								format = {
 									enabled = true,
