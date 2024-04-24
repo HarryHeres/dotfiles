@@ -105,12 +105,22 @@ return {
                     require 'lspconfig'.lemminx.setup {
                         capabilities = capabilities,
                         settings = {
-                            format = {
-                                enabled = true,
-                                splitAttributes = false,
-                                joinCDATALines = false,
-                                joinContentLines = false,
-                                spaceBeforeEmptyCloseTag = false
+                            xml = {
+                                trace = {
+                                    server = "verbose",
+                                },
+                                logs = {
+                                    client = true,
+                                    file = "~/.local/state/nvim/lsp4xml.log"
+                                },
+                                format = {
+                                    enabled = true,
+                                    splitAttributes = false,
+                                    joinCDATALines = false,
+                                    joinContentLines = false,
+                                    joinCommentLines = false,
+                                    spaceBeforeEmptyCloseTag = false
+                                }
                             }
                         }
 
