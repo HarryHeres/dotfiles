@@ -44,7 +44,7 @@ return {
 
 
 				-- 💀
-				'-configuration', jdtls_path .. '/config_linux',
+				'-configuration', jdtls_path .. '/config_mac',
 				-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
 				-- Must point to the                      Change to one of `linux`, `win` or `mac`
 				-- eclipse.jdt.ls installation            Depending on your system.
