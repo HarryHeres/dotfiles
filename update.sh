@@ -16,6 +16,7 @@ cp ~/.zprofile ./$HOME_FOLDER
 cp ~/.zshrc ./$HOME_FOLDER
 cp ~/.clangd ./$HOME_FOLDER
 cp ~/.tmux.conf ./$HOME_FOLDER
+cp -r ~/.homebrew ./$HOME_FOLDER
 
 cp -r ~/.config/alacritty ./$CONFIG_FOLDER
 cp -r ~/.config/kitty ./$CONFIG_FOLDER

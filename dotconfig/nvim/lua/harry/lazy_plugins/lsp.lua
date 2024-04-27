@@ -110,7 +110,7 @@ return {
 								},
 								logs = {
 									client = true,
-									file = "~/.local/state/nvim/lsp4xml.log"
+									file = vim.fn.expand("~/.local/state/nvim/lsp4xml.log")
 								},
 								format = {
 									enabled = true,
@@ -213,7 +213,8 @@ return {
 						-- '--inverse-search',
 						-- [[nvim-texlabconfig -file %%%1 -line %%%2 -server ]] .. vim.v.servername,
 						'--forward-search-file', '%f',
-						'--forward-search-line', '%l', '%p'
+						'--forward-search-line', '%l',
+						'%p'
 					}
 
 					local pdf_executable = 'sioyek'
@@ -225,11 +226,11 @@ return {
 
 						settings = {
 							texlab = {
-								auxDirectory = "build",
 								build = {
-									-- args = { "-X", "compile", "%f", "-k", "-o", "build", "--synctex", "--keep-logs" },
-									-- executable = "tectonic",
-									args = { "-pdf", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
+									auxDirectory = "build",
+									pdfDirectory = "build",
+									logDirectory = "build",
+									args = { "-pdf", "-auxdir=build", "-outdir=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
 									executable = "latexmk",
 									forwardSearchAfter = false,
 									onSave = true
