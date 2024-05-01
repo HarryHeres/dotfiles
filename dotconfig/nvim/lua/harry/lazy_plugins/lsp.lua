@@ -230,7 +230,7 @@ return {
 									auxDirectory = "build",
 									pdfDirectory = "build",
 									logDirectory = "build",
-									args = { "-pdf", "-auxdir=build", "-outdir=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
+									args = { "-cd", "-pdf", "-shell-escape", "-auxdir=build", "-outdir=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
 									executable = "latexmk",
 									forwardSearchAfter = false,
 									onSave = true
