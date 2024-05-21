@@ -2,8 +2,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 alias vim=nvim
 
-alias python=python3
-alias pip="python -m pip"
+# alias python=python3
+# alias pip="python -m pip"
 
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@$11/11.0.20"
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.9"
@@ -11,7 +11,9 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Con
 # export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home"
 alias java=$JAVA_HOME/bin/java
 # alias ssh="kitten ssh" 
-
+alias rm="trash-put"
+alias restore="trash-restore"
+alias cat="bat"
 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:$JAVA_HOME/bin
