@@ -29,7 +29,9 @@ mkdir -p $ETC_FOLDER/systemd/system
 
 mkdir -p $USR_FOLDER/share/easyeffects/presets
 
-cp ~/.bashrc $HOME_FOLDER
+# cp ~/.bashrc $HOME_FOLDER
+cp ~/.zshrc $HOME_FOLDER
+cp ~/.zprofile $HOME_FOLDER
 cp ~/.tmux.conf $HOME_FOLDER
 
 cp -r ~/.config/hypr ./$CONFIG_FOLDER

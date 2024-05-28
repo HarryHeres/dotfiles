@@ -1,14 +1,4 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-#if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-#		/usr/bin/pipewire & /usr/bin/pipewire-pulse & /usr/bin/wireplumber &
-#		/usr/bin/wl-clip-persist --clipboard primary &
-#fi
+# Zsh user configuration
 
 alias python="python3.9"
 alias pip="python3.9 -m pip"
@@ -24,7 +14,6 @@ alias restore="trash-restore"
 # alias easyeffects="/bin/sh -c \"flatpak run com.github.wwmm.easyeffects --gapplication-service &\""
 
 export JAVA_HOME=/usr/lib/jvm/default/
-PS1='[\u@\h \W]\$ '
 export TERM="xterm-256color"
 export PATH="$PATH:/usr/local/texlive/2023/bin/x86_64-linux"
 export PATH="$PATH:/home/harry/Programs/Looking-Glass-Client"
