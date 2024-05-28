@@ -10,12 +10,17 @@
 #		/usr/bin/wl-clip-persist --clipboard primary &
 #fi
 
-
+alias python="python3.9"
+alias pip="python3.9 -m pip"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias less='less -r -R'
 alias vim='nvim'
-alias python-slicer="/opt/3dslicer/bin/PythonSlicer"
+alias docker="podman"
+alias cat="bat"
+alias rm="trash-put"
+alias restore="trash-restore"
+# alias python-slicer="/opt/3dslicer/bin/PythonSlicer"
 # alias easyeffects="/bin/sh -c \"flatpak run com.github.wwmm.easyeffects --gapplication-service &\""
 
 export JAVA_HOME=/usr/lib/jvm/default/

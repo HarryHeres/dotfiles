@@ -50,6 +50,7 @@ cp ~/.config/rofimoji.rc ./$CONFIG_FOLDER
 
 cp -r ~/.local/share/rofi ./$LOCAL_FOLDER/share/
 cp ~/.local/share/applications/windows-vm.desktop ./$LOCAL_FOLDER/share/applications
+cp ~/.local/share/applications/Alacritty.desktop ./$LOCAL_FOLDER/share/applications
 
 cp -r /usr/share/easyeffects/presets ./$USR_FOLDER/share/easyeffects
 

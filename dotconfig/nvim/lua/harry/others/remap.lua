@@ -64,3 +64,6 @@ vim.keymap.set("n", "<leader>D", function() require("trouble").toggle("workspace
 
 -- Tmux sessionizer
 vim.keymap.set("n", "<A-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
+
+-- Reset word highlight
+vim.keymap.set("n", "<leader>n", "<cmd>noh<CR>")

@@ -111,7 +111,7 @@ return {
                                 },
                                 logs = {
                                     client = true,
-                                    file = "~/.local/state/nvim/lsp4xml.log"
+                                    file = vim.fn.expand("~/.local/state/nvim/lsp4xml.log")
                                 },
                                 format = {
                                     enabled = true,
@@ -226,11 +226,11 @@ return {
 
                         settings = {
                             texlab = {
-                                auxDirectory = "build",
                                 build = {
-                                    -- args = { "-X", "compile", "%f", "-k", "-o", "build", "--synctex", "--keep-logs" },
-                                    -- executable = "tectonic",
-                                    args = { "-pdf", "-output-directory=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                                    auxDirectory = "build",
+                                    pdfDirectory = "build",
+                                    logDirectory = "build",
+                                    args = { "-cd", "-pdf", "-shell-escape", "-auxdir=build", "-outdir=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
                                     executable = "latexmk",
                                     forwardSearchAfter = false,
                                     onSave = true
