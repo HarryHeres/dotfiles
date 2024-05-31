@@ -23,6 +23,8 @@ mkdir $VAR_FOLDER
 
 mkdir -p $HOME_FOLDER
 
+mkdir -p $CONFIG_FOLDER/legendary
+
 mkdir -p $ETC_FOLDER/libvirt/hooks
 mkdir -p $ETC_FOLDER/pacman.d
 mkdir -p $ETC_FOLDER/systemd/system
@@ -49,6 +51,7 @@ cp -r ~/.config/nvim ./$CONFIG_FOLDER
 cp -r ~/.config/neofetch ./$CONFIG_FOLDER
 cp -r ~/.config/sioyek ./$CONFIG_FOLDER
 cp ~/.config/rofimoji.rc ./$CONFIG_FOLDER
+cp ~/.config/legendary/config.ini ./$CONFIG_FOLDER/legendary
 
 cp -r ~/.local/share/rofi ./$LOCAL_FOLDER/share/
 # cp ~/.local/share/applications/windows-vm.desktop ./$LOCAL_FOLDER/share/applications

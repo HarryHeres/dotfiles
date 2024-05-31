@@ -113,12 +113,12 @@
 
     "cpu": {
         "format": " {usage: >3}%",
-        "on-click": "kitty htop"
+        "on-click": "alacritty -e htop"
     },
 
     "memory": {
         "format": "RAM: {: >3}%",
-        "on-click": "kitty htop"
+        "on-click": "alacritty -e htop"
     },
     
     "battery": {
