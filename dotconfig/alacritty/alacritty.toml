@@ -4,9 +4,15 @@ import = ["~/.config/alacritty/gruvbox-material.toml",
 
 [font]
 normal = {family = "FiraMono Nerd Font", style = "Regular"}
-size = 15.0
+size = 14.0
 
 [window]
 option_as_alt = "OnlyLeft"
 startup_mode = "Maximized"
 opacity = 0.99 # MacOS mission control bugfix
+
+[keyboard]
+bindings = [
+	{ key = "F", mods = "Alt", chars ="tmux new ~/.local/bin/tmux-sessionizer.sh \r"},
+
+]
