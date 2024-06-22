@@ -35,7 +35,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				'bashls',
-				'clangd',
+				-- 'clangd',
 				'cmake',
 				'cssls',
 				'eslint',
@@ -69,14 +69,6 @@ return {
 								}
 							}
 						}
-					}
-				end,
-
-				['clangd'] = function()
-					require 'lspconfig'.clangd.setup {
-						capabilities = capabilities,
-						cmd = { "clangd", "--header-insertion=never" },
-						filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cl" },
 					}
 				end,
 
@@ -278,5 +270,11 @@ return {
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 		end
+
+		require 'lspconfig'.clangd.setup {
+			capabilities = capabilities,
+			cmd = { "clangd", "--header-insertion=never" },
+			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cl" },
+		}
 	end
 }

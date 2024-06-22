@@ -14,5 +14,4 @@ opacity = 0.99 # MacOS mission control bugfix
 [keyboard]
 bindings = [
 	{ key = "F", mods = "Alt", chars ="tmux new ~/.local/bin/tmux-sessionizer.sh \r"},
-
 ]
