@@ -4,8 +4,8 @@ alias vim=nvim
 
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@$11/11.0.20"
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.9"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home"
-# export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home"
+# export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home"
 alias java=$JAVA_HOME/bin/java
 alias rm="trash-put"
 alias restore="trash-restore"
@@ -26,5 +26,7 @@ export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:"/usr/local/lib"
 
 export lara_dev="lara_dev"
 export LARA_DEV="lara_dev"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 eval "$(fzf --zsh)"

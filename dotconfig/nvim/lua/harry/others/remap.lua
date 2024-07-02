@@ -37,10 +37,11 @@ vim.keymap.set("n", "<leader>vx", ":vsplit<CR> :term<CR>")
 vim.keymap.set("n", "<leader>p", ":Telescope project<CR>")
 
 -- Window resizing
-vim.api.nvim_set_keymap("n", "<C-S-h>", ":vertical resize -5<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-j>", ":horizontal resize +5<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-k>", ":horizontal resize -5<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-S-l>", ":vertical resize +5<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-S-h>", ":vertical resize -5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "^[[104;6D", ":vertical resize -5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "^[[106;6D", ":horizontal resize +5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "^[[107;6D", ":horizontal resize -5<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "^[[108;6D", ":vertical resize +5<CR>", { noremap = true, silent = true })
 
 -- Debugging shortcuts
 function showScopes()
@@ -58,9 +59,6 @@ vim.api.nvim_set_keymap('n', '<F11>', "<cmd>lua require'dap'.step_into()<CR>", {
 vim.api.nvim_set_keymap('n', '<F12>', "<cmd>lua require'dap'.step_out()<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<leader>h', ":Telescope neoclip<CR>", { noremap = true })
-
--- LSP Diagnostic
-vim.keymap.set("n", "<leader>D", function() require("trouble").toggle() end)
 
 -- Tmux Sessionizer
 vim.keymap.set("n", "<A-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")

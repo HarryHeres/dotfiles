@@ -39,6 +39,7 @@ return {
 				'cmake',
 				'cssls',
 				'eslint',
+				'gopls',
 				'html',
 				'intelephense',
 				'lemminx',
@@ -72,6 +73,10 @@ return {
 					}
 				end,
 
+				-- ['clangd'] = function()
+
+				-- end,
+
 				['cssls'] = function()
 					require 'lspconfig'.cssls.setup {
 						capabilities = capabilities,
@@ -90,6 +95,10 @@ return {
 						capabilities = capabilities,
 						global_storage_path = "~/.local/share/nvim"
 					}
+				end,
+
+				['glsl_analyzer'] = function()
+					require 'lspconfig'.glsl_analyzer.setup {}
 				end,
 
 				['lemminx'] = function()

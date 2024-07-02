@@ -8,8 +8,10 @@ return {
 		local project_dir = vim.fn.expand('~/.local/share/nvim/jdtls_projects')
 
 		local java17_home = '/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home'
+
+		-- JavaFX Runtimes
 		local jfx17_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home'
-		local jfx11_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home'
+		local java11_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home'
 
 		local jdtls_path = vim.fn.expand('~/Projects/Tools/Neovim/jdtls')
 		local java_formatter = vim.fn.expand('~/Projects/Templates/java_formatter.xml')
@@ -76,11 +78,11 @@ return {
 						runtimes = {
 							{
 								name = "JavaSE-11",
-								path = jfx11_home .. "/",
+								path = java11_home .. "/",
 							},
 							{
 								name = "JavaSE-17",
-								path = java17_home .. "/",
+								path = jfx17_home .. "/",
 							},
 						},
 					},
