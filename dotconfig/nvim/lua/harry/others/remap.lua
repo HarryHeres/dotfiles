@@ -38,6 +38,11 @@ vim.keymap.set("n", "<leader>p", ":Telescope project<CR>")
 
 -- Window resizing
 -- vim.api.nvim_set_keymap("n", "<C-S-h>", ":vertical resize -5<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-S-j>", ":vertical resize -5<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-S-k>", ":vertical resize -5<CR>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-S-l>", ":vertical resize -5<CR>", { noremap = true, silent = true })
+
+-- Alacritty + Tmux
 vim.api.nvim_set_keymap("n", "^[[104;6D", ":vertical resize -5<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "^[[106;6D", ":horizontal resize +5<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "^[[107;6D", ":horizontal resize -5<CR>", { noremap = true, silent = true })
