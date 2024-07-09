@@ -165,6 +165,9 @@ return {
 									},
 									pyflakes = {
 										enabled = false
+									},
+									flake8 = {
+										enabled = true,
 									}
 								},
 
