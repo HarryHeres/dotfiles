@@ -40,6 +40,7 @@ return {
                 'cmake',
                 'cssls',
                 'eslint',
+                'gopls',
                 'html',
                 'intelephense',
                 'lemminx',
@@ -70,14 +71,6 @@ return {
                                 }
                             }
                         }
-                    }
-                end,
-
-                ['clangd'] = function()
-                    require 'lspconfig'.clangd.setup {
-                        capabilities = capabilities,
-                        cmd = { "clangd", "--header-insertion=never" },
-                        filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cl" },
                     }
                 end,
 
@@ -165,6 +158,9 @@ return {
                                     },
                                     pyflakes = {
                                         enabled = false
+                                    },
+                                    flake8 = {
+                                        enabled = true
                                     }
                                 },
 
@@ -178,34 +174,6 @@ return {
                         }
                     }
                 end,
-
-                -- ['pyright'] = function()
-                --     require 'lspconfig'.pyright.setup {
-                --         settings = {
-                --             python = {
-                --                 analysis = {
-                --                     extra_paths = {
-                --                         "/opt/3dslicer/bin/",
-                --                         "/opt/3dslicer/bin/Python",
-                --                         "/opt/3dslicer/lib",
-                --                         "/opt/3dslicer/lib/Python/lib/python3.9",
-                --                         "/opt/3dslicer/lib/QtPlugins",
-                --                         "/opt/3dslicer/lib/Slicer-5.4",
-                --                         "/opt/3dslicer/bin/Python/vtkmodules"
-                --                     }
-                --                 }
-                --             }
-                --         }
-                --     }
-                -- end,
-
-                -- ['rust_analyzer'] = function()
-                --     require 'lspconfig'.rust_analyzer.setup({})
-                -- end,
-
-                -- ['tailwindcss'] = function()
-                --     require 'lspconfig'.tailwindcss.setup({})
-                -- end,
 
                 ['texlab'] = function()
                     local forward_search_args = {

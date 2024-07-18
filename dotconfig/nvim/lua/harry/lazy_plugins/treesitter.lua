@@ -3,7 +3,7 @@ return {
     config = function()
         require 'nvim-treesitter.configs'.setup({
             -- A list of parser names, or "all" (the five listed parsers should always be installed)
-            ensure_installed = { "cpp", "java", "c", "lua", "vim", "vimdoc", "sql", "latex", "markdown", "html", "comment" },
+            ensure_installed = { "cpp", "java", "c", "lua", "vim", "vimdoc", "sql", "latex", "markdown", "html", "comment", "yaml" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
@@ -27,6 +27,6 @@ return {
             }
         })
 
-        vim.treesitter.language.register('c', 'lisp') -- the someft filetype will use the python parser and queries.
+        vim.treesitter.language.register('c', 'lisp')
     end
 }

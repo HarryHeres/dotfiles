@@ -38,7 +38,6 @@ cp ~/.tmux.conf $HOME_FOLDER
 
 cp -r ~/.config/hypr ./$CONFIG_FOLDER
 cp -r ~/.config/alacritty ./$CONFIG_FOLDER
-cp -r ~/.config/kitty ./$CONFIG_FOLDER
 cp -r ~/.config/rofi ./$CONFIG_FOLDER
 cp -r ~/.config/waybar ./$CONFIG_FOLDER
 cp -r ~/.config/xsettingsd ./$CONFIG_FOLDER

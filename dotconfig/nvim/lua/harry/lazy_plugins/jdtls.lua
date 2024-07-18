@@ -38,7 +38,7 @@ return {
 
                 -- 💀
                 '-jar',
-                jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar',
+                jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.ja',
                 -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
                 -- Must point to the                                                     Change this to
                 -- eclipse.jdt.ls installation                                           the actual version
@@ -81,7 +81,7 @@ return {
                             },
                             {
                                 name = "JavaSE-17",
-                                path = java17_home .. "/",
+                                path = jfx17_home .. "/",
                             },
                         },
                     },

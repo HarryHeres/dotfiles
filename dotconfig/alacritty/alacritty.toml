@@ -5,8 +5,3 @@ import = ["~/.config/alacritty/gruvbox-material.toml",
 [font]
 normal = {family = "FiraMono Nerd Font", style = "Regular"}
 size = 11.0
-
-[keyboard]
-bindings = [
-	{ key = "F", mods = "Alt", chars ="tmux new ~/.local/bin/tmux-sessionizer.sh \r"},
-]
