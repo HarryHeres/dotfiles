@@ -7,11 +7,11 @@ return {
 		local java_cmds = vim.api.nvim_create_augroup('java_cmds', { clear = true })
 		local project_dir = vim.fn.expand('~/.local/share/nvim/jdtls_projects')
 
-		local java17_home = '/opt/homebrew/Cellar/openjdk@17/17.0.11/libexec/openjdk.jdk/Contents/Home'
+		local java17_home = '/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/'
 
 		-- JavaFX Runtimes
 		local jfx17_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home'
-		local java11_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home'
+		local jfx11_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home'
 
 		local jdtls_path = vim.fn.expand('~/Projects/Tools/Neovim/jdtls')
 		local java_formatter = vim.fn.expand('~/Projects/Templates/java_formatter.xml')
@@ -47,7 +47,7 @@ return {
 
 
 				-- 💀
-				'-configuration', jdtls_path .. '/config_mac',
+				'-configuration', jdtls_path .. '/config_mac_arm',
 				-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
 				-- Must point to the                      Change to one of `linux`, `win` or `mac`
 				-- eclipse.jdt.ls installation            Depending on your system.
@@ -60,7 +60,7 @@ return {
 			-- 💀
 			-- This is the default if not provided, you can remove it. Or adjust as needed.
 			-- One dedicated LSP server & client will be started per unique root_dir
-			root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', '.gitignore' }),
+			root_dir = vim.fs.root(0, { "mvnw", "pom.xml" }),
 
 			on_attach = function(client, bufrn)
 				jdtls.setup_dap({ hotcodereplace = 'auto' })
@@ -79,7 +79,7 @@ return {
 						runtimes = {
 							{
 								name = "JavaSE-11",
-								path = java11_home .. "/",
+								path = jfx11_home .. "/",
 							},
 							{
 								name = "JavaSE-17",
@@ -155,7 +155,6 @@ return {
 		-- jdtls.start_or_attach(config)
 
 		local function jdtls_setup(event)
-			-- print("Attaching JDTLS...")
 			jdtls.start_or_attach(config)
 		end
 

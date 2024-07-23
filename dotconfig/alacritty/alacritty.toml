@@ -1,4 +1,5 @@
-import = ["~/.config/alacritty/gruvbox-material.toml", 
+import = [
+"~/.config/alacritty/gruvbox-material.toml", 
 "~/.config/alacritty/keybindings.toml"
 ]
 
