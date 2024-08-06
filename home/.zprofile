@@ -21,9 +21,9 @@ export LIBRARY_PATH=$LIBRARY_PATH:"/usr/local/lib"
 export LIBRARY_PATH=$LIBRARY_PATH:"/opt/homebrew/lib"
 export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:"/usr/local/lib"
 
-export lara_dev="lara_dev"
-export LARA_DEV="lara_dev"
-
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+export lara_dev="lara_dev"
+export LARA_DEV="true"
 
 eval "$(fzf --zsh)"
