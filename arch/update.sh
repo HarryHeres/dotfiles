@@ -25,7 +25,6 @@ mkdir -p $HOME_FOLDER
 
 mkdir -p $CONFIG_FOLDER/legendary
 
-mkdir -p $ETC_FOLDER/libvirt/hooks
 mkdir -p $ETC_FOLDER/pacman.d
 mkdir -p $ETC_FOLDER/systemd/system
 
@@ -53,16 +52,11 @@ cp ~/.config/rofimoji.rc ./$CONFIG_FOLDER
 cp ~/.config/legendary/config.ini ./$CONFIG_FOLDER/legendary
 
 cp -r ~/.local/share/rofi ./$LOCAL_FOLDER/share/
-# cp ~/.local/share/applications/windows-vm.desktop ./$LOCAL_FOLDER/share/applications
 
 cp -r /usr/share/easyeffects/presets ./$USR_FOLDER/share/easyeffects
 
 cp -r ~/Wallpapers/ $HOME_FOLDER
 cp -r ~/Icons/ $HOME_FOLDER 
-
-cp -r /etc/libvirt/hooks/* ./$ETC_FOLDER/libvirt/hooks
-
-cp /etc/pacman.d/mirrorlist ./$ETC_FOLDER
 
 cp /etc/systemd/system/kingstonrgb.service ./$ETC_FOLDER/systemd/system
 cp /usr/share/set_ram_rgb.sh ./$USR_FOLDER/share
