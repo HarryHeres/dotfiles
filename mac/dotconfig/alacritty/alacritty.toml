@@ -1,0 +1,13 @@
+import = [
+"~/.config/alacritty/gruvbox-material.toml", 
+"~/.config/alacritty/keybindings.toml"
+]
+
+[font]
+normal = {family = "FiraMono Nerd Font", style = "Regular"}
+size = 14.0
+
+[window]
+option_as_alt = "OnlyLeft"
+startup_mode = "Maximized"
+opacity = 0.99 # MacOS mission control bugfix

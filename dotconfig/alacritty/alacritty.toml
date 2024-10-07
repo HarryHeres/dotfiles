@@ -1,7 +1,0 @@
-import = ["~/.config/alacritty/gruvbox-material.toml", 
-"~/.config/alacritty/keybindings.toml"
-]
-
-[font]
-normal = {family = "FiraMono Nerd Font", style = "Regular"}
-size = 11.0

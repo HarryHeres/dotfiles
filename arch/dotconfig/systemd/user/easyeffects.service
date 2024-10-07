@@ -1,0 +1,11 @@
+[Unit]
+Description=EasyEffects Status Service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/easyeffects --gapplication-service
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

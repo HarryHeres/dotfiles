@@ -1,0 +1,27 @@
+[
+  {
+    "label": "Lock screen",
+    "exec": "swaylock",
+    "icon": "/home/harry/Icons/lock.svg"
+  },
+  {
+    "label": "Suspend",
+    "exec": "systemctl suspend",
+    "icon": "/home/harry/Icons/suspend.svg"
+  },
+  {
+    "label": "Logout",
+    "exec": "loginctl terminate-session self",
+    "icon": "/home/harry/Icons/logout.svg"
+  },
+  {
+    "label": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "/home/harry/Icons/reboot.svg"
+  },
+  {
+    "label": "Shutdown",
+    "exec": "systemctl -i poweroff",
+    "icon": "/home/harry/Icons/shutdown.svg"
+  }
+]

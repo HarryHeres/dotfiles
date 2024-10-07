@@ -1,0 +1,154 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 50,
+    "margin": "0 0 0 0",
+    //"width": 1350, // Waybar width
+    // Choose the order of the modules idle_inhibitor
+    "modules-left": ["custom/launcher", "idle_inhibitor", "user", "hyprland/workspaces", "hyprland/window", "custom/media", "tray"],
+    "modules-center": ["clock"],
+    "modules-right": ["hyprland/language", "pulseaudio", "temperature", "cpu", "memory", "network", "custom/power"], 
+    
+ // Modules configuration
+    "custom/launcher": {
+    	"format":" ",
+    	"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+    	"tooltip": false,
+    },
+
+	"idle_inhibitor": {
+	    "format": "{icon}",
+	    "format-icons": {
+		"activated": "",
+		"deactivated": ""
+	    }
+    },
+
+	 "user": {
+		"format": "Up: {work_H}:{work_M}",
+		"interval": 60,
+		"icon": true
+    },
+
+    "hyprland/workspaces":{
+		"format": "{id}",
+		"on-click": "activate"
+    },
+
+     "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "format-icons": {
+            "spotify": "",
+			"default": "󰝚"
+        },
+        "escape": true,
+        "exec": "/home/harry/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    },
+
+    "tray": {
+    	//"icon-size": 15,
+	"spacing": 10
+    },
+
+	"hyprland/window": {
+		"format": "Window: {title}"
+	},
+
+	"hyprland/language": {
+		"format": ": {}",
+		"format-en": "EN",
+		"format-cs": "CZ"
+	},
+    
+    "clock": {
+        "tooltip-format": "{:%A %B %d %Y | %H:%M}",
+        "format": "  {:%a %d %b  %H:%M}",	//24 hour format
+        "format-alt": "  {:%d/%m/%Y  %H:%M:%S}",
+        "interval": 1
+    },
+
+    
+
+    "backlight": {
+        "format": "{icon} {percent: >3}%",
+        "format-icons": ["", "",""],
+        //"on-scroll-down": "light -A 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob",
+        //"on-scroll-up": "light -U 5 && light -G | cut -d'.' -f1 > $SWAYSOCK.wob"
+    },
+
+    "pulseaudio": {
+        //"scroll-step": 1,
+        "format": "{desc}: {volume}% {icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "󰕾", ""]
+        },
+
+		"on-click": "pavucontrol",
+		"on-scroll-up": "pactl set-sink-volume 0 +5%",
+		"on-scroll-down": "pactl set-sink-volume 0 -5%",
+		"ignored-sinks": ["Easy Effects Sink"]
+    },
+    
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C ",
+        "format": "  {temperatureC}°C"
+    },
+
+    "cpu": {
+        "format": " {usage: >3}%",
+        "on-click": "alacritty -e htop"
+    },
+
+    "memory": {
+        "format": "RAM: {: >3}%",
+        "on-click": "alacritty -e htop"
+    },
+    
+    "battery": {
+    	"interval" : 3,
+        "states": {
+            //"good": 95,
+            "warning": 30,
+            "critical": 15
+        },       
+        "format": "{icon}   {capacity}% {power}W {time}",
+        "format-plugged": " {icon}   {capacity}% Charged",
+        "format-charging": " {icon}   {capacity}% {power}W {time}",
+        "format-icons": ["", "", "", ""]
+    },
+
+   
+     "network": {
+        "format": "⚠  Disabled",
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰇄  Wired",
+        "format-disconnected": "⚠  Disconnected",
+        "on-click": "nm-connection-editor"
+    },
+    
+
+    "custom/power": {
+      	"format":"⏻",
+       	"on-click": "nwg-bar",
+      	"tooltip": false,
+    },
+
+    
+}

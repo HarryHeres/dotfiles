@@ -1,0 +1,8 @@
+[keyboard]
+bindings = [
+    { key = "F", mods = "Alt", chars ="tmux new ~/.local/bin/tmux-sessionizer.sh \r"},
+	{ key = "H", mods = "Control|Shift", chars ="^[[104;6D"},
+	{ key = "J", mods = "Control|Shift", chars ="^[[106;6D"},
+	{ key = "K", mods = "Control|Shift", chars ="^[[107;6D"},
+	{ key = "L", mods = "Control|Shift", chars ="^[[108;6D"},
+]
