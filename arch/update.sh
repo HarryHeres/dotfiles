@@ -16,7 +16,7 @@ rm -rf ./$USR_FOLDER
 
 mkdir $CONFIG_FOLDER 
 
-mkdir -p $LOCAL_FOLDER/share/applications
+mkdir -p $LOCAL_FOLDER/share
 mkdir -p $LOCAL_FOLDER/bin
 
 mkdir $VAR_FOLDER
@@ -30,24 +30,28 @@ mkdir -p $ETC_FOLDER/systemd/system
 
 mkdir -p $USR_FOLDER/share/easyeffects/presets
 
-# cp ~/.bashrc $HOME_FOLDER
 cp ~/.zshrc $HOME_FOLDER
 cp ~/.zprofile $HOME_FOLDER
 cp ~/.tmux.conf $HOME_FOLDER
+cp ~/.gtkrc-2.0 $HOME_FOLDER
+cp ~/.gitconfig $HOME_FOLDER
 
-cp -r ~/.config/hypr ./$CONFIG_FOLDER
+cp -r ~/Wallpapers/ $HOME_FOLDER
+cp -r ~/Icons/ $HOME_FOLDER 
+
 cp -r ~/.config/alacritty ./$CONFIG_FOLDER
+cp -r ~/.config/dunst ./$CONFIG_FOLDER
+cp -r ~/.config/hypr ./$CONFIG_FOLDER
+cp -r ~/.config/nautilus ./$CONFIG_FOLDER
+cp -r ~/.config/nvim ./$CONFIG_FOLDER
+cp -r ~/.config/nwg-* ./$CONFIG_FOLDER
 cp -r ~/.config/rofi ./$CONFIG_FOLDER
+cp -r ~/.config/systemd ./$CONFIG_FOLDER
+cp -r ~/.config/swaylock ./$CONFIG_FOLDER
+cp -r ~/.config/sioyek ./$CONFIG_FOLDER
 cp -r ~/.config/waybar ./$CONFIG_FOLDER
 cp -r ~/.config/xsettingsd ./$CONFIG_FOLDER
-cp -r ~/.config/nwg-* ./$CONFIG_FOLDER
-cp -r ~/.config/dunst ./$CONFIG_FOLDER
-cp -r ~/.config/systemd ./$CONFIG_FOLDER
-cp -r ~/.config/sway ./$CONFIG_FOLDER
-cp -r ~/.config/swaylock ./$CONFIG_FOLDER
-cp -r ~/.config/nvim ./$CONFIG_FOLDER
-cp -r ~/.config/neofetch ./$CONFIG_FOLDER
-cp -r ~/.config/sioyek ./$CONFIG_FOLDER
+
 cp ~/.config/rofimoji.rc ./$CONFIG_FOLDER
 cp ~/.config/legendary/config.ini ./$CONFIG_FOLDER/legendary
 
@@ -55,11 +59,8 @@ cp -r ~/.local/share/rofi ./$LOCAL_FOLDER/share/
 
 cp -r /usr/share/easyeffects/presets ./$USR_FOLDER/share/easyeffects
 
-cp -r ~/Wallpapers/ $HOME_FOLDER
-cp -r ~/Icons/ $HOME_FOLDER 
-
 cp /etc/systemd/system/kingstonrgb.service ./$ETC_FOLDER/systemd/system
 cp /usr/share/set_ram_rgb.sh ./$USR_FOLDER/share
 
 cp ~/.local/bin/tmux-sessionizer.sh ./$LOCAL_FOLDER/bin
-cp ~/.tmux.conf ./$HOME_FOLDER
+

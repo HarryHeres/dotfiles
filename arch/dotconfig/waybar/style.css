@@ -5,7 +5,7 @@
  * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
  *
  * =========================================================================== */
- 
+
 /* -----------------------------------------------------------------------------
  * Keyframes
  * -------------------------------------------------------------------------- */
@@ -15,7 +15,7 @@
 /* -----------------------------------------------------------------------------
  * Base styles
  * -------------------------------------------------------------------------- */
- 
+
 /* Reset all styles */
 
 * {
@@ -28,10 +28,27 @@
 }
 
 window#waybar {
-	background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
 }
 
-#custom-launcher, #workspaces, #clock, #idle_inhibitor, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-power, #user, #tray, #custom-media, #memory, #language, #window{
+#custom-launcher,
+#workspaces,
+#clock,
+#idle_inhibitor,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-power,
+#user,
+#tray,
+#custom-media,
+#memory,
+#language,
+#window {
     padding: 5px 8px;
     border-style: solid;
     background-color: @base_opaque;
@@ -45,7 +62,7 @@ window#waybar {
     padding: 0 0 0 0;
 }
 
-#workspaces button:hover *{
+#workspaces button:hover * {
     color: red;
 }
 
@@ -58,13 +75,13 @@ window#waybar {
     border-style: solid;
     opacity: 1;
     border-radius: 10px;
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 
 #workspaces button.active {
-    border-radius: 20px; 
-    background-color: @mauve; 
+    border-radius: 20px;
+    background-color: @mauve;
 }
 
 
@@ -76,7 +93,7 @@ window#waybar {
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
- 
+
 #clock {
     color: @sky;
     border-radius: 10px;
@@ -84,10 +101,10 @@ window#waybar {
 }
 
 #idle_inhibitor {
-    padding: 0px 10px 0px 5px;
+    padding: 0px 13px 0px 5px;
     border-radius: 10px;
     margin-left: 5px;
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 #backlight {
@@ -103,19 +120,19 @@ window#waybar {
 }
 
 #battery.charging {
-	color: @teal;
+    color: @teal;
 }
 
 /* @keyframes blink { */
 /*     to { */
 /*         color: @red; */
-         /* border-bottom: 2px solid @red; */ 
+/* border-bottom: 2px solid @red; */
 /*     } */
 /* } */
 
 /* #battery.critical:not(.charging) { */
 /*     color: @red; */
-     /* border-bottom: 2px solid #bf616a; */
+/* border-bottom: 2px solid #bf616a; */
 /*     animation-name: blink; */
 /*     animation-duration: 0.5s; */
 /*     animation-timing-function: linear; */
@@ -127,13 +144,14 @@ window#waybar {
     color: @sky;
     /* border-bottom: 2px solid @sky; */
 }
+
 #cpu #cpu-icon {
     color: @sky;
 }
 
 #memory {
-	border-radius: 0px 10px 10px 0px;
-	margin-right: 5px;
+    border-radius: 0px 10px 10px 0px;
+    margin-right: 5px;
     color: @sky;
 }
 
@@ -141,8 +159,8 @@ window#waybar {
     color: #bf616a;
 }
 
-#network{
-	color: @green;
+#network {
+    color: @green;
     border-radius: 10px;
     margin-right: 5px;
 }
@@ -171,16 +189,16 @@ window#waybar {
 }
 
 #idle_inhibitor {
-   background-color: #ebcb8b;
-   color: @base;
+    background-color: #ebcb8b;
+    color: @base;
 }
 
 #custom-launcher {
-    background-color: @mauve; 
+    background-color: @mauve;
     color: @base;
     border-radius: 10px;
     margin-left: 15px;
-    padding: 0px 0px 0px 5px;
+    padding: 0px 5px 0px 5px;
 }
 
 #custom-power {
@@ -199,7 +217,7 @@ window#waybar {
 }
 
 #tray {
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 #custom-media {
@@ -207,12 +225,12 @@ window#waybar {
     margin-right: 5px;
 }
 
-#window{
-	border-radius: 10px 10px 10px 10px;
-	margin-right: 5px;
+#window {
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 5px;
 }
 
-#language{
-	border-radius: 10px 10px 10px 10px;
-	margin-right: 5px;
+#language {
+    border-radius: 10px 10px 10px 10px;
+    margin-right: 5px;
 }

@@ -43,17 +43,10 @@ vim.keymap.set("n", "^[[106;6D", ":horizontal resize +5<CR>", { noremap = true, 
 vim.keymap.set("n", "^[[107;6D", ":horizontal resize -5<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "^[[108;6D", ":vertical resize +5<CR>", { noremap = true, silent = true })
 
--- Debugging shortcuts
-local function toggleScopes()
-    local widgets = require('dap.ui.widgets')
-    local sidebar = widgets.sidebar(widgets.scopes)
-    sidebar.open()
-end
-
 vim.keymap.set('n', '<C-B>', function() require 'dap'.toggle_breakpoint() end, { noremap = true })
 vim.keymap.set('n', '<F4>', function() require 'dap'.repl() end, { noremap = true })
 vim.keymap.set('n', '<F5>', function() require 'dap'.continue() end, { noremap = true })
-vim.keymap.set('n', '<F6>', function() toggleScopes() end, { noremap = true })
+vim.keymap.set('n', '<F6>', function() require 'dapui'.toggle() end, { noremap = true })
 vim.keymap.set('n', '<F10>', function() require 'dap'.step_over() end, { noremap = true })
 vim.keymap.set('n', '<F11>', function() require 'dap'.step_into() end, { noremap = true })
 vim.keymap.set('n', '<F12>', function() require 'dap'.step_out() end, { noremap = true })

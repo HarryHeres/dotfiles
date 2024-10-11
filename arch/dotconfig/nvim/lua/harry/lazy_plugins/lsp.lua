@@ -50,7 +50,7 @@ return {
                 'rust_analyzer',
                 'tailwindcss',
                 'texlab',
-                'tsserver',
+                'ts_ls',
                 'yamlls'
             },
             handlers = {

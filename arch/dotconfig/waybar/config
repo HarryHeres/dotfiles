@@ -3,13 +3,10 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 50,
     "margin": "0 0 0 0",
-    //"width": 1350, // Waybar width
-    // Choose the order of the modules idle_inhibitor
-    "modules-left": ["custom/launcher", "idle_inhibitor", "user", "hyprland/workspaces", "hyprland/window", "custom/media", "tray"],
+    "modules-left": ["custom/launcher", "idle_inhibitor", "user", "hyprland/workspaces", "hyprland/window", "tray"],
     "modules-center": ["clock"],
     "modules-right": ["hyprland/language", "pulseaudio", "temperature", "cpu", "memory", "network", "custom/power"], 
     
- // Modules configuration
     "custom/launcher": {
     	"format":" ",
     	"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
@@ -64,12 +61,10 @@
     
     "clock": {
         "tooltip-format": "{:%A %B %d %Y | %H:%M}",
-        "format": "  {:%a %d %b  %H:%M}",	//24 hour format
-        "format-alt": "  {:%d/%m/%Y  %H:%M:%S}",
+        "format": "  {:%a %d %b     %H:%M}",	//24 hour format
+        "format-alt": "  {:%d/%m/%Y   %H:%M:%S}",
         "interval": 1
     },
-
-    
 
     "backlight": {
         "format": "{icon} {percent: >3}%",

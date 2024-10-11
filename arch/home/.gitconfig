@@ -1,0 +1,8 @@
+[user]
+	name = Jan Hereš
+	email = personal@janheres.eu
+	signingKey = /home/harry/.ssh/id_rsa.pub
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh

@@ -78,6 +78,7 @@ plugins=(
   docker
   mvn
   ufw
+  zsh-fzf-history-search
 )
 source $ZSH/oh-my-zsh.sh
 
@@ -109,3 +110,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Source zprofile
 source ~/.zprofile
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/harry/.dart-cli-completion/zsh-config.zsh ]] && . /home/harry/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
