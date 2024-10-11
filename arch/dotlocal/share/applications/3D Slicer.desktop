@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=5.6.2
+Name=3D Slicer
+Path=/home/harry/Programs/Slicer
+Exec=./Slicer
+Icon=/home/harry/Icons/3dslicer.svg
+Terminal=false

@@ -50,3 +50,4 @@ chromium
 python
 python-pip
 screenfetch
+glu

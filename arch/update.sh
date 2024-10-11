@@ -16,7 +16,7 @@ rm -rf ./$USR_FOLDER
 
 mkdir $CONFIG_FOLDER 
 
-mkdir -p $LOCAL_FOLDER/share
+mkdir -p $LOCAL_FOLDER/share/applications
 mkdir -p $LOCAL_FOLDER/bin
 
 mkdir $VAR_FOLDER
@@ -56,6 +56,7 @@ cp ~/.config/rofimoji.rc ./$CONFIG_FOLDER
 cp ~/.config/legendary/config.ini ./$CONFIG_FOLDER/legendary
 
 cp -r ~/.local/share/rofi ./$LOCAL_FOLDER/share/
+cp -r ~/.local/share/applications/3D\ Slicer.desktop ./$LOCAL_FOLDER/share/applications
 
 cp -r /usr/share/easyeffects/presets ./$USR_FOLDER/share/easyeffects
 
