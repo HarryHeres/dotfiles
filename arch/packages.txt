@@ -49,3 +49,4 @@ hyprshot
 chromium
 python
 python-pip
+screenfetch
