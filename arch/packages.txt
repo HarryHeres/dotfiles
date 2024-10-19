@@ -51,3 +51,12 @@ python
 python-pip
 screenfetch
 glu
+ripgrep
+lapack
+php
+composer
+docker
+docker-compose
+localsend-bin
+vlc
+

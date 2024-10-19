@@ -6,7 +6,6 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias less='less -r -R'
 alias vim='nvim'
-alias docker="podman"
 alias cat="bat"
 alias rm="trash-put"
 alias restore="trash-restore"
