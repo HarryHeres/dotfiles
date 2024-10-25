@@ -59,4 +59,4 @@ docker
 docker-compose
 localsend-bin
 vlc
-
+android-studio
