@@ -21,10 +21,6 @@ return {
                 additional_vim_regex_highlighting = false,
                 disable = { "csv" },
             },
-
-            autotag = {
-                enable = true
-            }
         })
 
         vim.treesitter.language.register('c', 'lisp')

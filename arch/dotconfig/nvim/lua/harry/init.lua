@@ -15,7 +15,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "<S-h>", function() vim.lsp.buf.hover() end, opts)
         vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
         vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set('n', '<F4>', "<cmd>lua require'dap'.repl.toggle()<CR>", opts)
         vim.keymap.set("n", "<C-i>", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set('n', "<leader>qf", function() vim.lsp.buf.code_action() end, opts)
         vim.keymap.set('n', "<C-S-d>", function() vim.diagnostic.open_float() end, opts)
@@ -25,7 +24,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     group = HarryGroup,
     pattern = "*",
-    command = ":lua vim.lsp.buf.format()"
+    callback = function(args)
+        require("conform").format({ bufnr = args.buf })
+    end,
 })
 
 -- Swift LSP
