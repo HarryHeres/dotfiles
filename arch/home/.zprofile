@@ -14,5 +14,13 @@ export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export PATH="/home/harry/Programs/Looking-Glass-Client:$PATH"
 export PATH="/home/harry/.local/bin:$PATH"
+
+# Android stuff
+export PATH="/home/harry/Android/Sdk/cmdline-tools/latest/bin/:$PATH"
+export PATH="/home/harry/Android/Sdk/platform-tools/:$PATH"
+
 export WINEPREFIX=/home/harry/.wine
+
+export ANDROID_HOME=/home/harry/Android/Sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
 # . "$HOME/.cargo/env"
