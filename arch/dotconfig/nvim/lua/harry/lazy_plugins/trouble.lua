@@ -9,4 +9,11 @@ return {
         --     previous = "p"
         -- },
     },
+    keys = {
+        {
+            "<leader>D",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+    }
 }
