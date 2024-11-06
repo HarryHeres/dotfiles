@@ -60,3 +60,4 @@ docker-compose
 localsend-bin
 vlc
 android-studio
+hyprpicker
