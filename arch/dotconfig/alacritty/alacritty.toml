@@ -1,7 +1,10 @@
-import = ["~/.config/alacritty/gruvbox-material.toml", 
-"~/.config/alacritty/keybindings.toml"
+[general]
+import = [
+    "~/.config/alacritty/gruvbox-material.toml", 
+    "~/.config/alacritty/keybindings.toml"
 ]
 
 [font]
 normal = {family = "JetBrains Mono", style = "Regular"}
 size = 12
+
