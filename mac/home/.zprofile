@@ -7,13 +7,15 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Con
 alias java=$JAVA_HOME/bin/java
 alias rm="trash-put"
 alias cat="bat"
+alias bash=/opt/homebrew/bin/bash
 
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:$JAVA_HOME/bin
-export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools/
-export PATH=$PATH:/opt/homebrew/bin
-export PATH=$PATH:$HOME/.local/share/nvim/mason/bin
-export PATH=$PATH:$HOME/.cargo/bin/
+export PATH=:~/.local/bin:$PATH
+export PATH=:$JAVA_HOME/bin:$PATH
+export PATH=:$HOME/Library/Android/sdk/platform-tools/:$PATH
+export PATH=:/opt/homebrew/bin:$PATH
+export PATH=:$HOME/.local/share/nvim/mason/bin:$PATH
+export PATH=:$HOME/.cargo/bin/:$PATH
+export PATH="/opt/homebrew/opt/ruby/bin/"::$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # C/C++ specific 
@@ -23,6 +25,6 @@ export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:"/usr/local/lib"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-export MANGO_DEV="true"
+export ANDROID_HOME="/Users/harry/Library/Android/sdk"
 
-eval "$(fzf --zsh)"
+source <(fzf --zsh)

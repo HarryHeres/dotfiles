@@ -108,5 +108,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Added by Amplify CLI binary installer
-export PATH="$HOME/.amplify/bin:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -35,7 +35,7 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				'bashls',
-				-- 'clangd',
+				'clangd',
 				'cmake',
 				'cssls',
 				'eslint',
@@ -46,10 +46,11 @@ return {
 				'lua_ls',
 				'marksman',
 				'pylsp',
+				'ruby_lsp',
 				'rust_analyzer',
 				'tailwindcss',
 				'texlab',
-				'tsserver',
+				'ts_ls',
 				'yamlls'
 			},
 			handlers = {
@@ -93,7 +94,7 @@ return {
 				['intelephense'] = function()
 					require 'lspconfig'.intelephense.setup {
 						capabilities = capabilities,
-						global_storage_path = "~/.local/share/nvim"
+						global_storage_path = "~/.local/share/nvim",
 					}
 				end,
 
@@ -210,6 +211,14 @@ return {
 				--     require 'lspconfig'.tailwindcss.setup({})
 				-- end,
 
+				['ruby_lsp'] = function()
+					require 'lspconfig'.ruby_lsp.setup {}
+				end,
+
+				['ts_ls'] = function()
+					require 'lspconfig'.ts_ls.setup {}
+				end,
+
 				['texlab'] = function()
 					local forward_search_args = {
 						'--reuse-window',
@@ -287,6 +296,10 @@ return {
 			capabilities = capabilities,
 			cmd = { "clangd", "--header-insertion=never" },
 			filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto", "cl" },
+		}
+
+		require 'lspconfig'.sourcekit.setup {
+			filetypes = { "swift" }
 		}
 	end
 }

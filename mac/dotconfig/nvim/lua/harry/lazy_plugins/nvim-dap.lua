@@ -33,7 +33,7 @@ return {
 
 		dap.adapters.lldb = {
 			type = 'executable',
-			command = '/usr/bin/lldb-vscode',
+			command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
 			name = 'lldb'
 		}
 
@@ -43,7 +43,7 @@ return {
 				type = "lldb",
 				request = "launch",
 				program = function()
-					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+					return vim.fn.getcwd() .. '/main'
 				end,
 				cwd = '${workspaceFolder}',
 				stopAtEntry = true,
