@@ -1,7 +1,7 @@
 # Zsh user configuration
 
-alias python="python3.9"
-alias pip="python3.9 -m pip"
+alias python="python3.12"
+alias pip="python -m pip"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias less='less -r -R'

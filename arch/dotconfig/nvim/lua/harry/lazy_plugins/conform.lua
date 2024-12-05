@@ -14,6 +14,9 @@ return {
                 javascriptreact = { "prettierd", "prettier", stop_after_first = true },
                 typescript = { "prettierd", "prettier", stop_after_first = true },
                 typescriptreact = { "prettierd", "prettier", stop_after_first = true },
+                css = { "prettierd", "prettier", stop_after_first = true },
+                c = { "clang-format" },
+                cpp = { "clang-format" },
             },
 
             default_format_opts = {
