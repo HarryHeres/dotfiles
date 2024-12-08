@@ -35,8 +35,6 @@ vim.keymap.set("v", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set("n", "<leader>sx", ":split<CR> :term<CR>")
 vim.keymap.set("n", "<leader>vx", ":vsplit<CR> :term<CR>")
 
-vim.keymap.set("n", "<leader>p", ":Telescope project<CR>")
-
 -- Window resizing
 -- vim.api.nvim_set_keymap("n", "<C-S-h>", ":vertical resize -5<CR>", { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap("n", "<C-S-j>", ":vertical resize -5<CR>", { noremap = true, silent = true })
