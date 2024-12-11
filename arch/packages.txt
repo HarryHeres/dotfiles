@@ -61,3 +61,6 @@ localsend-bin
 vlc
 android-studio
 hyprpicker
+texlive-basic
+texlive-bin
+texlive-binextra
