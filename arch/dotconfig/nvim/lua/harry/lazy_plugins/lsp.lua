@@ -195,6 +195,7 @@ return {
                         settings = {
                             texlab = {
                                 build = {
+                                    pdfDirectory = "build",
                                     args = { "-cd", "-pdf", "-shell-escape", "-auxdir=build", "-outdir=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
                                     executable = "latexmk",
                                     forwardSearchAfter = false,
