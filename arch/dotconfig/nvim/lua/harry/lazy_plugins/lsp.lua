@@ -190,14 +190,11 @@ return {
 
                     require('lspconfig').texlab.setup({
                         capabilities = capabilities,
-                        filetypes = { "tex", "bib" },
+                        filetypes = { "tex", "plaintex", "bib" },
 
                         settings = {
                             texlab = {
                                 build = {
-                                    auxDirectory = "build",
-                                    pdfDirectory = "build",
-                                    logDirectory = "build",
                                     args = { "-cd", "-pdf", "-shell-escape", "-auxdir=build", "-outdir=build", "-interaction=nonstopmode", "-synctex=1", "%f" },
                                     executable = "latexmk",
                                     forwardSearchAfter = false,

@@ -64,3 +64,4 @@ hyprpicker
 texlive-basic
 texlive-bin
 texlive-binextra
+texlive-latex
