@@ -35,7 +35,6 @@ htop
 nautilus
 dunst
 steam
-rofimoji
 noto-color-emoji-fontconfig
 man
 wl-clipboard
@@ -62,3 +61,4 @@ vlc
 android-studio
 hyprpicker
 texlive
+emote
