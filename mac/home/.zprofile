@@ -15,12 +15,11 @@ export PATH=:$HOME/Library/Android/sdk/platform-tools/:$PATH
 export PATH=:/opt/homebrew/bin:$PATH
 export PATH=:$HOME/.local/share/nvim/mason/bin:$PATH
 export PATH=:$HOME/.cargo/bin/:$PATH
-export PATH="/opt/homebrew/opt/ruby/bin/"::$PATH
+export PATH="/opt/homebrew/opt/ruby/bin/":$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # C/C++ specific 
-export LIBRARY_PATH=$LIBRARY_PATH:"/usr/local/lib"
-export LIBRARY_PATH=$LIBRARY_PATH:"/opt/homebrew/lib"
+export LIBRARY_PATH="/usr/local/lib":"/opt/homebrew/lib"
 export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:"/usr/local/lib"
 
 export HOMEBREW_NO_AUTO_UPDATE=1

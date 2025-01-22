@@ -134,4 +134,3 @@ cmd-ctrl-alt-shift-k = 'move-workspace-to-monitor prev'
 if.window-title-regex-substring = 'Lara|Scenic View|Mango'
 check-further-callbacks = true 
 run = 'layout floating'
-

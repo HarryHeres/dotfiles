@@ -18,6 +18,12 @@ return {
 				ruby = { "rubyfmt" },
 				c = { "clang-format" },
 				cpp = { "clang-format" },
+				swift = { "swift_format" }
+			},
+			formatters = {
+				swift_format = {
+					command = "swift-format"
+				}
 			},
 
 			default_format_opts = {

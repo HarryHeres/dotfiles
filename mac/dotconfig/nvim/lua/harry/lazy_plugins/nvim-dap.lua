@@ -43,15 +43,16 @@ return {
 				type = "lldb",
 				request = "launch",
 				program = function()
-					return vim.fn.getcwd() .. '/main'
+					return vim.fn.getcwd() .. '/bin/main'
 				end,
 				cwd = '${workspaceFolder}',
-				stopAtEntry = true,
+				stopAtEntry = false,
 				setupCommands = pretty_printing
 			},
 		}
 
 		dap.configurations.c = dap.configurations.cpp
+
 		dap.configurations.rust = {
 			{
 				name = "Debug (Local)",
@@ -83,6 +84,20 @@ return {
 
 					return commands
 				end,
+			},
+		}
+
+		dap.configurations.swift = {
+			{
+				name = "Debug (Local)",
+				type = "lldb",
+				request = "launch",
+				program = function()
+					return vim.fn.getcwd() .. '/.build/debug/swift-debug'
+				end,
+				cwd = '${workspaceFolder}',
+				stopAtEntry = false,
+				setupCommands = pretty_printing
 			},
 		}
 
