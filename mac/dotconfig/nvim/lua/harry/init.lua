@@ -28,3 +28,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "swift",
+	callback = function()
+		vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+	end,
+})
