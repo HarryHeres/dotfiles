@@ -9,6 +9,8 @@ alias vim='nvim'
 alias cat="bat"
 alias rm="trash-put"
 alias restore="trash-restore"
+alias vpn-on="nmcli con up UBK-VPN"
+alias vpn-off="nmcli con down UBK-VPN"
 
 export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
