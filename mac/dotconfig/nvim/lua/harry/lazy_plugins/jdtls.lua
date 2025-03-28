@@ -7,15 +7,10 @@ return {
 		local java_cmds = vim.api.nvim_create_augroup('java_cmds', { clear = true })
 		local project_dir = vim.fn.expand('~/.local/share/nvim/jdtls_projects')
 
-		local java17_home = '/Library/Java/JavaVirtualMachines/openjdk-17.jdk/Contents/Home/'
-
-		-- JavaFX Runtimes
-		local jfx17_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-17-full.jdk/Contents/Home'
-		local jfx11_home = '/Library/Java/JavaVirtualMachines/liberica-jdk-11-full.jdk/Contents/Home'
-
-		local jdtls_path = vim.fn.expand('~/Projects/Tools/Neovim/jdtls')
 		local java_formatter = vim.fn.expand('~/Projects/Templates/java_formatter.xml')
 		local java_debug = vim.fn.expand('~/.local/share/nvim/mason/packages/java-debug-adapter')
+		local java21_home = '/opt/homebrew/Cellar/openjdk@21/21.0.6'
+		local java17_home = '/opt/homebrew/Cellar/openjdk@17/17.0.14'
 
 		local java_settings_prefs_path = vim.fn.expand('~/Projects/Templates/settings.prefs')
 
@@ -24,11 +19,7 @@ return {
 			-- The command that starts the language server
 			-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 			cmd = {
-
-				-- 💀
-				java17_home .. '/bin/java', -- or '/path/to/java17_or_newer/bin/java'
-				-- depends on if `java` is in your $PATH env variable and if it points to the right version.
-
+				java17_home .. '/bin/java/',
 				'-Declipse.application=org.eclipse.jdt.ls.core.id1',
 				'-Dosgi.bundles.defaultStartLevel=4',
 				'-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -39,24 +30,12 @@ return {
 				'--add-modules=ALL-SYSTEM',
 				'--add-opens', 'java.base/java.util=ALL-UNNAMED',
 				'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-
-				-- 💀
 				'-jar',
-				jdtls_path .. '/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'
-				,
-				-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-				-- Must point to the                                                     Change this to
-				-- eclipse.jdt.ls installation                                           the actual version
-
-
-				-- 💀
-				'-configuration', jdtls_path .. '/config_mac_arm',
-				-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-				-- Must point to the                      Change to one of `linux`, `win` or `mac`
-				-- eclipse.jdt.ls installation            Depending on your system.
-
-				-- 💀
-				-- See `data directory configuration` section in the README
+				vim.fn.expand(
+					'~/Projects/Tools/Neovim/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'),
+				'-configuration',
+				vim.fn.expand(
+					'~/Projects/Tools/Neovim/jdtls/config_mac_arm/'),
 				'-data', project_dir
 			},
 
@@ -85,12 +64,16 @@ return {
 					configuration = {
 						runtimes = {
 							{
-								name = "JavaSE-11",
-								path = jfx11_home .. "/",
+								name = "JavaSE-21",
+								path = java21_home .. '/'
 							},
 							{
 								name = "JavaSE-17",
-								path = jfx17_home .. "/",
+								path = java17_home .. '/'
+							},
+							{
+								name = "JavaSE-11",
+								path = '/opt/homebrew/Cellar/openjdk@11/11.0.26/'
 							},
 						},
 					},

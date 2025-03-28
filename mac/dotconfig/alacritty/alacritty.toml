@@ -1,13 +1,14 @@
-import = [
-"~/.config/alacritty/gruvbox-material.toml", 
-"~/.config/alacritty/keybindings.toml"
-]
-
 [font]
 normal = {family = "JetBrainsMono Nerd Font", style = "Regular"}
-size = 15.0
+size = 16.0
 
 [window]
 option_as_alt = "OnlyLeft"
 startup_mode = "Maximized"
 opacity = 1
+
+[general]
+import = [
+"~/.config/alacritty/gruvbox-material.toml", 
+"~/.config/alacritty/keybindings.toml"
+]

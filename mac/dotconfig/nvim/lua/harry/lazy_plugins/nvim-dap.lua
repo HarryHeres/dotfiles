@@ -33,8 +33,16 @@ return {
 
 		dap.adapters.lldb = {
 			type = 'executable',
-			command = '/opt/homebrew/opt/llvm/bin/lldb-dap',
+			command = '/Library/Developer/CommandLineTools/usr/bin/lldb-dap',
 			name = 'lldb'
+		}
+
+
+		dap.adapters.codelldb = {
+			type = 'executable',
+			command = '/Users/harry/Projects/Tools/Neovim/codelldb/extension/adapter/codelldb',
+			args = { '--liblldb=/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/Resources/liblldbCoreDevicePlugin.dylib' },
+			name = 'codelldb'
 		}
 
 		dap.configurations.cpp = {
@@ -62,6 +70,7 @@ return {
 					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 				end,
 				cwd = '${workspaceFolder}',
+
 				stopAtEntry = true,
 				setupCommands = pretty_printing,
 				initCommands = function()
@@ -92,6 +101,7 @@ return {
 				name = "Debug (Local)",
 				type = "lldb",
 				request = "launch",
+				sourceLanguages = { 'swift' },
 				program = function()
 					return vim.fn.getcwd() .. '/.build/debug/swift-debug'
 				end,
