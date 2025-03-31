@@ -9,8 +9,7 @@ return {
 
 		local java_formatter = vim.fn.expand('~/Projects/Templates/java_formatter.xml')
 		local java_debug = vim.fn.expand('~/.local/share/nvim/mason/packages/java-debug-adapter')
-		local java21_home = '/opt/homebrew/Cellar/openjdk@21/21.0.6'
-		local java17_home = '/opt/homebrew/Cellar/openjdk@17/17.0.14'
+		local java23_home = '/opt/homebrew/Cellar/openjdk/23.0.2/'
 
 		local java_settings_prefs_path = vim.fn.expand('~/Projects/Templates/settings.prefs')
 
@@ -19,7 +18,7 @@ return {
 			-- The command that starts the language server
 			-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 			cmd = {
-				java17_home .. '/bin/java/',
+				java23_home .. 'bin/java',
 				'-Declipse.application=org.eclipse.jdt.ls.core.id1',
 				'-Dosgi.bundles.defaultStartLevel=4',
 				'-Declipse.product=org.eclipse.jdt.ls.core.product',
@@ -32,10 +31,10 @@ return {
 				'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 				'-jar',
 				vim.fn.expand(
-					'~/Projects/Tools/Neovim/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar'),
+					'~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.1100.v20250306-0509.jar'),
 				'-configuration',
 				vim.fn.expand(
-					'~/Projects/Tools/Neovim/jdtls/config_mac_arm/'),
+					'~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/config_mac_arm'),
 				'-data', project_dir
 			},
 
@@ -63,18 +62,18 @@ return {
 
 					configuration = {
 						runtimes = {
-							{
-								name = "JavaSE-21",
-								path = java21_home .. '/'
-							},
-							{
-								name = "JavaSE-17",
-								path = java17_home .. '/'
-							},
-							{
-								name = "JavaSE-11",
-								path = '/opt/homebrew/Cellar/openjdk@11/11.0.26/'
-							},
+							-- {
+							-- 	name = "JavaSE-21",
+							-- 	path = '/opt/homebrew/Cellar/openjdk@21/21.0.6/'
+							-- },
+							-- {
+							-- 	name = "JavaSE-17",
+							-- 	path = '/opt/homebrew/Cellar/openjdk@17/17.0.14/'
+							-- },
+							-- {
+							-- 	name = "JavaSE-11",
+							-- 	path = '/opt/homebrew/Cellar/openjdk@11/11.0.26/'
+							-- },
 						},
 					},
 

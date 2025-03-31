@@ -9,9 +9,9 @@ export PATH=:$HOME/.cargo/bin/:$PATH
 export PATH="/opt/homebrew/opt/ruby/bin/":$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-# export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/"
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@21/21.0.6/"
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14/"
+# export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14/"
 
 # C/C++ specific 
 export LIBRARY_PATH="/usr/local/lib":"/opt/homebrew/lib"
