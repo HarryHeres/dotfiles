@@ -8,7 +8,6 @@ return {
 		local project_dir = vim.fn.expand('~/.local/share/nvim/jdtls_projects')
 
 		local java_formatter = vim.fn.expand('~/Projects/Templates/java_formatter.xml')
-		local java_debug = vim.fn.expand('~/.local/share/nvim/mason/packages/java-debug-adapter')
 		local java23_home = '/opt/homebrew/Cellar/openjdk/23.0.2/'
 
 		local java_settings_prefs_path = vim.fn.expand('~/Projects/Templates/settings.prefs')
@@ -106,13 +105,6 @@ return {
 						settings = {
 							url = java_formatter,
 						},
-						-- comments = {
-						--     enabled = 'false',
-
-						--     insertSpaces = 'true',
-						--     onType = 'true',
-						--     tabSize = 4
-						-- }
 					},
 
 					cleanup = {
@@ -133,7 +125,9 @@ return {
 			-- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
 			init_options = {
 				bundles = {
-					vim.fn.glob(java_debug .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1),
+					vim.fn.glob(
+						'~/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar',
+						1),
 				}
 			},
 		}

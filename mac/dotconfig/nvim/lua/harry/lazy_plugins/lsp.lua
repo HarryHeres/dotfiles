@@ -74,10 +74,6 @@ return {
 					}
 				end,
 
-				-- ['clangd'] = function()
-
-				-- end,
-
 				['cssls'] = function()
 					require 'lspconfig'.cssls.setup {
 						capabilities = capabilities,
@@ -183,34 +179,6 @@ return {
 					}
 				end,
 
-				-- ['pyright'] = function()
-				-- 	require 'lspconfig'.pyright.setup {
-				-- 		settings = {
-				-- 			python = {
-				-- 				analysis = {
-				-- 					extra_paths = {
-				-- 						"/opt/3dslicer/bin/",
-				-- 						"/opt/3dslicer/bin/Python",
-				-- 						"/opt/3dslicer/lib",
-				-- 						"/opt/3dslicer/lib/Python/lib/python3.9",
-				-- 						"/opt/3dslicer/lib/QtPlugins",
-				-- 						"/opt/3dslicer/lib/Slicer-5.4",
-				-- 						"/opt/3dslicer/bin/Python/vtkmodules"
-				-- 					}
-				-- 				}
-				-- 			}
-				-- 		}
-				-- 	}
-				-- end,
-
-				-- ['rust_analyzer'] = function()
-				--     require 'lspconfig'.rust_analyzer.setup({})
-				-- end,
-
-				-- ['tailwindcss'] = function()
-				--     require 'lspconfig'.tailwindcss.setup({})
-				-- end,
-
 				['ruby_lsp'] = function()
 					require 'lspconfig'.ruby_lsp.setup {}
 				end,
@@ -283,14 +251,28 @@ return {
 		})
 		vim.diagnostic.config({
 			virtual_text = true,
-			signs = true,
+			underline = false,
+			signs = {
+				text = {
+					[vim.diagnostic.severity.ERROR] = '',
+					[vim.diagnostic.severity.WARN] = '',
+					[vim.diagnostic.severity.HINT] = '',
+					[vim.diagnostic.severity.INFO] = '',
+				},
+				linehl = {
+					[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+					[vim.diagnostic.severity.WARN] = 'WarnMsg',
+					[vim.diagnostic.severity.HINT] = 'HintMsg',
+					[vim.diagnostic.severity.INFO] = 'InfoMsg',
+				},
+				numhl = {
+					[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+					[vim.diagnostic.severity.WARN] = 'WarnMsg',
+					[vim.diagnostic.severity.HINT] = 'HintMsg',
+					[vim.diagnostic.severity.INFO] = 'InfoMsg',
+				},
+			}
 		})
-
-		local signs = { Error = " ", Warn = "", Hint = " ", Info = " " }
-		for type, icon in pairs(signs) do
-			local hl = "DiagnosticSign" .. type
-			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-		end
 
 		require 'lspconfig'.clangd.setup {
 			capabilities = capabilities,
