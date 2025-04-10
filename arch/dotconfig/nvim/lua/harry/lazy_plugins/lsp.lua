@@ -237,7 +237,7 @@ return {
 
 		vim.diagnostic.config({
 			virtual_text = true,
-			underline = false,
+			underline = true,
 			update_in_insert = true,
 			signs = {
 				text = {
@@ -247,16 +247,16 @@ return {
 					[vim.diagnostic.severity.INFO] = ""
 				},
 				linehl = {
-					[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-					[vim.diagnostic.severity.WARN] = 'WarningMsg',
-					[vim.diagnostic.severity.HINT] = 'HintMsg',
-					[vim.diagnostic.severity.INFO] = 'InfoMsg',
+					[vim.diagnostic.severity.ERROR] = '',
+					[vim.diagnostic.severity.WARN] = '',
+					[vim.diagnostic.severity.HINT] = '',
+					[vim.diagnostic.severity.INFO] = '',
 				},
 				numhl = {
-					[vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-					[vim.diagnostic.severity.WARN] = 'WarningMsg',
-					[vim.diagnostic.severity.HINT] = 'HintMsg',
-					[vim.diagnostic.severity.INFO] = 'InfoMsg',
+					[vim.diagnostic.severity.ERROR] = '',
+					[vim.diagnostic.severity.WARN] = '',
+					[vim.diagnostic.severity.HINT] = '',
+					[vim.diagnostic.severity.INFO] = '',
 				}
 			}
 		})

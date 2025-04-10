@@ -1,5 +1,6 @@
 return {
-	'mfussenegger/nvim-jdtls',
+	'harryheres/nvim-jdtls',
+	-- dir = vim.fn.expand("~/Projects/Tools/Neovim/nvim-jdtls/"),
 	name = 'jdtls',
 
 	config = function()
@@ -63,7 +64,18 @@ return {
 			root_dir = require('jdtls.setup').find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', '.gitignore' }),
 
 			on_attach = function(client, bufrn)
-				jdtls.setup_dap({ hotcodereplace = 'auto' })
+				local jdtls_dap = require('jdtls.dap')
+				jdtls_dap.fetch_main_configs(function(configurations)
+					local dap = require('dap')
+					for _, config in ipairs(configurations) do
+						if config.request == "launch" then
+							config.args = function()
+								return vim.fn.input("Program arguments: ")
+							end
+							table.insert(dap.configurations.java, config)
+						end
+					end
+				end)
 			end,
 
 			-- Here you can configure eclipse.jdt.ls specific settings

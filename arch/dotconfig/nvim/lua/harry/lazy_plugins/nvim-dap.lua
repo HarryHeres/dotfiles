@@ -14,13 +14,6 @@ return {
 
 		dap.configurations.java = {
 			{
-				type = 'java',
-				request = 'launch',
-				name = 'Debug (Local)',
-				program = '${file}',
-				setupCommands = pretty_printing,
-			},
-			{
 				type = "java",
 				name = "Debug (Attach) 127.0.0.1:8787",
 				request = "attach",
@@ -29,8 +22,6 @@ return {
 				projectName = "",
 				setupCommands = pretty_printing,
 			},
-
-
 			{
 				type = "java",
 				name = "Debug (Attach) 127.0.0.1:8788",
@@ -39,7 +30,7 @@ return {
 				port = "8788",
 				projectName = "",
 				setupCommands = pretty_printing,
-			},
+			}
 		}
 
 		dap.adapters.lldb = {
