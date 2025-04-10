@@ -14,18 +14,21 @@ return {
 
 		dap.configurations.java = {
 			{
-				type = 'java',
-				request = 'launch',
-				name = 'Debug (Local)',
-				program = '${file}',
-				setupCommands = pretty_printing,
-			},
-			{
 				type = "java",
-				name = "Debug (Attach) localhost",
+				name = "Debug (Attach) 127.0.0.1:8787",
 				request = "attach",
 				hostName = "127.0.0.1",
 				port = "8787",
+				projectName = "",
+				setupCommands = pretty_printing,
+			},
+
+			{
+				type = "java",
+				name = "Debug (Attach) 127.0.0.1:8788",
+				request = "attach",
+				hostName = "127.0.0.1",
+				port = "8788",
 				projectName = "",
 				setupCommands = pretty_printing,
 			},
