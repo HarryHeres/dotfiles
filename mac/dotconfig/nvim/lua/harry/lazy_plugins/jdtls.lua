@@ -1,5 +1,6 @@
 return {
 	'harryheres/nvim-jdtls',
+	-- dir = vim.fn.expand('~/Projects/Personal/nvim-jdtls/'),
 	name = 'jdtls',
 
 	config = function()
@@ -54,6 +55,7 @@ return {
 							table.insert(dap.configurations.java, config)
 						end
 					end
+					dap.adapters.java = jdtls_dap.start_debug_adapter
 				end)
 			end,
 
