@@ -1,6 +1,8 @@
+JDTLS_CONFIGS = {}
+
 return {
 	'harryheres/nvim-jdtls',
-	-- dir = vim.fn.expand('~/Projects/Personal/nvim-jdtls/'),
+	dir = vim.fn.expand('~/Projects/FOSS/nvim-jdtls/'),
 	name = 'jdtls',
 
 	config = function()
@@ -44,19 +46,44 @@ return {
 			root_dir = vim.fs.root(0, { "mvnw", "pom.xml" }),
 
 			on_attach = function(client, bufrn)
+				if #JDTLS_CONFIGS > 0 then
+					vim.notify('Tried to attach jdtls to buffer ' .. bufrn)
+					return
+				end
+
 				local jdtls_dap = require('jdtls.dap')
+				local dap = require('dap')
+
 				jdtls_dap.fetch_main_configs(function(configurations)
-					local dap = require('dap')
 					for _, config in ipairs(configurations) do
 						if config.request == "launch" then
 							config.args = function()
 								return vim.fn.input("Program arguments: ")
 							end
-							table.insert(dap.configurations.java, config)
 						end
+						table.insert(dap.configurations.java, config)
 					end
-					dap.adapters.java = jdtls_dap.start_debug_adapter
+					JDTLS_CONFIGS = configurations
 				end)
+
+				-- HCR
+				-- dap.listeners.before["event_processid"]["jdtls"] = function()
+				-- end
+				-- dap.listeners.before["event_telemetry"]["jdtls"] = function()
+				-- end
+
+				-- dap.listeners.before['event_hotcodereplace']['jdtls'] = function(session, body)
+				-- 	if body.changeType == jdtls_dap.hotcodereplace_type.BUILD_COMPLETE then
+				-- 		vim.notify('Applying code changes')
+				-- 		session:request('redefineClasses', nil, function(err)
+				-- 			assert(not err, vim.inspect(err))
+				-- 		end)
+				-- 	elseif body.message then
+				-- 		vim.notify(body.message)
+				-- 	end
+				-- end
+
+				dap.adapters.java = jdtls_dap.start_debug_adapter
 			end,
 
 			-- Here you can configure eclipse.jdt.ls specific settings
