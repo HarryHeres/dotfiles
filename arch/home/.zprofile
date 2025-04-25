@@ -1,6 +1,6 @@
 # Zsh user configuration
 
-alias python="python3.12"
+alias python="python3"
 alias pip="python -m pip"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
