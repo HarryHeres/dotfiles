@@ -3,9 +3,15 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 40,
     "margin": "0 0 0 0",
-    "modules-left": ["custom/power","idle_inhibitor", "user", "hyprland/workspaces", "hyprland/window", "tray"],
+    "modules-left": ["custom/power","custom/launcher","idle_inhibitor", "user", "hyprland/workspaces", "hyprland/window", "tray"],
     "modules-center": ["clock"],
     "modules-right": ["hyprland/language", "pulseaudio", "temperature", "cpu", "memory", "network", ], 
+
+	"custom/launcher": {
+      	"format":"",
+       	"on-click": "albert toggle",
+      	"tooltip": false,
+	},
 
     "custom/power": {
       	"format":"󰣇",
