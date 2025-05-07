@@ -62,3 +62,4 @@ android-studio
 hyprpicker
 texlive
 emote
+dbeaver

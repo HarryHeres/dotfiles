@@ -146,30 +146,39 @@ return {
 				['pylsp'] = function()
 					require 'lspconfig'.pylsp.setup {
 						capabilities = capabilities,
+						configurationSources = { "flake8" },
 						settings = {
 							pylsp = {
 								plugins = {
 									pycodestyle = {
 										enabled = false,
-										maxLineLength = 999,
-									},
-									pylint = {
-										enabled = false
 									},
 									pyflakes = {
 										enabled = false
 									},
+									mccabe = {
+										enabled = false
+									},
 									flake8 = {
+										enabled = true,
+										maxLineLength = 999
+									},
+									rope_autoimport = {
 										enabled = true
-									}
+									},
+									pylint = {
+										enabled = false
+									},
+									jedi_completion = {
+										enabled = true,
+										fuzzy = true,
+										include_class_objects = true,
+										include_function_objects = true,
+										eager = true,
+										cache_for = { "pandas", "numpy", "tensorflow", "matplotlib", "cv2", "django" }
+									},
 								},
 
-								jedi_completion = {
-									fuzzy = false,
-									include_class_objects = true,
-									include_function_objects = true,
-									eager = true
-								}
 							}
 						}
 					}
