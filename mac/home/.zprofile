@@ -13,8 +13,10 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14"
 
 # C/C++ specific 
-export LIBRARY_PATH="/usr/local/lib":"/opt/homebrew/lib"
-export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:"/usr/local/lib"
+SO_LIBS="/usr/local/lib":"/opt/homebrew/lib"
+export LIBRARY_PATH=$SO_LIBS
+export LD_LIBRARY_PATH=$SO_LIBS
+export DYLD_FALLBACK_LIBRARY_PATH=$SO_LIBS
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 

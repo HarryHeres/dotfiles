@@ -66,22 +66,23 @@ return {
 					JDTLS_CONFIGS = configurations
 				end)
 
-				-- HCR
-				-- dap.listeners.before["event_processid"]["jdtls"] = function()
-				-- end
-				-- dap.listeners.before["event_telemetry"]["jdtls"] = function()
-				-- end
+				-- Hot code replacing
+				dap.listeners.before["event_processid"]["jdtls"] = function()
+				end
+				dap.listeners.before["event_telemetry"]["jdtls"] = function()
+				end
 
-				-- dap.listeners.before['event_hotcodereplace']['jdtls'] = function(session, body)
-				-- 	if body.changeType == jdtls_dap.hotcodereplace_type.BUILD_COMPLETE then
-				-- 		vim.notify('Applying code changes')
-				-- 		session:request('redefineClasses', nil, function(err)
-				-- 			assert(not err, vim.inspect(err))
-				-- 		end)
-				-- 	elseif body.message then
-				-- 		vim.notify(body.message)
-				-- 	end
-				-- end
+				dap.listeners.before['event_hotcodereplace']['jdtls'] = function(session, body)
+					vim.notify(body.changeType)
+					if body.changeType == jdtls_dap.hotcodereplace_type.BUILD_COMPLETE then
+						vim.notify('Applying code changes')
+						session:request('redefineClasses', nil, function(err)
+							assert(not err, vim.inspect(err))
+						end)
+					elseif body.message then
+						vim.notify(body.message)
+					end
+				end
 
 				dap.adapters.java = jdtls_dap.start_debug_adapter
 			end,
