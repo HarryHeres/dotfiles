@@ -12,7 +12,6 @@ alias restore="trash-restore"
 alias vpn-on="nmcli con up UBK-VPN"
 alias vpn-off="nmcli con down UBK-VPN"
 
-export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 export PATH="/home/harry/Programs/Looking-Glass-Client:$PATH"
 export PATH="/home/harry/.local/bin:$PATH"

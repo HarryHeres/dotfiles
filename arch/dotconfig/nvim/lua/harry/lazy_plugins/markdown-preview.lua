@@ -3,7 +3,7 @@ return {
 
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 	ft = { "markdown" },
-	build = function() vim.fn["mkdp#util#install"]() end,
+	build = ":call mkdp#util#install()",
 
 	config = function()
 		-- set to 1, nvim will open the preview window after entering the markdown buffer

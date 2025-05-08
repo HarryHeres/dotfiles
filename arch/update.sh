@@ -14,7 +14,7 @@ rm -rf ./$HOME_FOLDER
 rm -rf ./$ETC_FOLDER
 rm -rf ./$USR_FOLDER
 
-mkdir $CONFIG_FOLDER 
+mkdir $CONFIG_FOLDER
 
 mkdir -p $LOCAL_FOLDER/share/applications
 mkdir -p $LOCAL_FOLDER/bin
@@ -37,9 +37,11 @@ cp ~/.gtkrc-2.0 $HOME_FOLDER
 cp ~/.gitconfig $HOME_FOLDER
 
 cp -r ~/Wallpapers/ $HOME_FOLDER
-cp -r ~/Icons/ $HOME_FOLDER 
+cp -r ~/Icons/ $HOME_FOLDER
 
 cp -r ~/.config/alacritty ./$CONFIG_FOLDER
+cp -r ~/.config/wezterm ./$CONFIG_FOLDER
+cp -r ~/.config/fontconfig ./$CONFIG_FOLDER
 cp -r ~/.config/dunst ./$CONFIG_FOLDER
 cp -r ~/.config/hypr ./$CONFIG_FOLDER
 cp -r ~/.config/nautilus ./$CONFIG_FOLDER
@@ -64,4 +66,3 @@ cp /etc/systemd/system/kingstonrgb.service ./$ETC_FOLDER/systemd/system
 cp /usr/share/set_ram_rgb.sh ./$USR_FOLDER/share
 
 cp ~/.local/bin/tmux-sessionizer.sh ./$LOCAL_FOLDER/bin
-

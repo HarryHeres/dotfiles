@@ -1,6 +1,8 @@
+JDTLS_CONFIGS = {}
+
 return {
 	'harryheres/nvim-jdtls',
-	-- dir = vim.fn.expand("~/Projects/Tools/Neovim/nvim-jdtls/"),
+	dir = vim.fn.expand("~/Projects/Tools/Neovim/nvim-jdtls/"),
 	name = 'jdtls',
 
 	config = function()
