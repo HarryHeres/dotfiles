@@ -1,10 +1,10 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export PATH=:~/.local/bin:$PATH
-export PATH=:$HOME/Library/Android/sdk/platform-tools/:$PATH
-export PATH=:/opt/homebrew/bin:$PATH
-export PATH=:$HOME/.local/share/nvim/mason/bin:$PATH
-export PATH=:$HOME/.cargo/bin/:$PATH
+export PATH=~/.local/bin:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools/:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
+export PATH=$HOME/.cargo/bin/:$PATH
 export PATH="/opt/homebrew/opt/ruby/bin/":$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 

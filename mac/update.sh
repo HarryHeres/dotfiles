@@ -8,7 +8,7 @@ rm -rf ./$CONFIG_FOLDER
 rm -rf ./$HOME_FOLDER
 rm -rf ./$LOCAL_FOLDER
 
-mkdir ./$CONFIG_FOLDER 
+mkdir ./$CONFIG_FOLDER
 mkdir ./$HOME_FOLDER
 mkdir -p ./$LOCAL_FOLDER/bin
 
@@ -23,5 +23,6 @@ cp -r ~/.config/sioyek ./$CONFIG_FOLDER
 cp -r ~/.config/yabai ./$CONFIG_FOLDER
 cp -r ~/.config/skhd ./$CONFIG_FOLDER
 cp -r ~/.config/aerospace ./$CONFIG_FOLDER
+cp -r ~/.config/wezterm ./$CONFIG_FOLDER
 
 cp ~/.local/bin/tmux-sessionizer.sh ./$LOCAL_FOLDER/bin
