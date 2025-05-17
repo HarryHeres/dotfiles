@@ -13,7 +13,7 @@ config.window_padding = {
 }
 
 config.font = wezterm.font('FiraCodeNerdFont')
-config.font_size = 11
+config.font_size = 10
 
 config.leader = { key = 't', mods = 'ALT', timeout_milliseconds = 1000 }
 config.default_cwd = '$HOME'
