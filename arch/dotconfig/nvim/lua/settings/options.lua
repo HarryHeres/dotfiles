@@ -26,7 +26,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "120"
 
 vim.api.nvim_command('set spelllang=en,cs')
 vim.api.nvim_command('set spell')

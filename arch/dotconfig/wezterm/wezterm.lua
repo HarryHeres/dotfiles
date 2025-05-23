@@ -31,6 +31,8 @@ local schema = {
 	end)
 }
 
+
+
 config.keys = {
 	{
 		key = 'd',
@@ -186,6 +188,18 @@ config.keys = {
 		key = 'K',
 		mods = 'ALT',
 		action = wezterm.action.AdjustPaneSize { 'Up', 5 }
+	},
+
+	{
+		key = 'L',
+		mods = 'CTRL',
+		action = wezterm.action.DisableDefaultAssignment
+	},
+
+	{
+		key = 'D',
+		mods = 'CTRL',
+		action = wezterm.action.ShowDebugOverlay
 	},
 }
 
