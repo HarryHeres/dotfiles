@@ -12,7 +12,7 @@ config.window_padding = {
 }
 
 config.font = wezterm.font('FiraCode Nerd Font')
-config.font_size = 13
+config.font_size = 14
 
 config.leader = { key = 't', mods = 'ALT', timeout_milliseconds = 1000 }
 config.default_cwd = '$HOME'
@@ -98,13 +98,13 @@ config.keys = {
 	{
 		key = 's',
 		mods = 'LEADER',
-		action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
+		action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }
 	},
 
 	{
 		key = 'v',
 		mods = 'LEADER',
-		action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }
+		action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
 	},
 
 	{
@@ -191,5 +191,7 @@ config.keys = {
 		action = wezterm.action.AdjustPaneSize { 'Up', 5 }
 	},
 }
+
+
 
 return config

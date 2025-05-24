@@ -3,7 +3,7 @@ return {
 
 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
 	ft = { "markdown" },
-	build = function() vim.fn["mkdp#util#install"]() end,
+	build = ":call mkdp#util#install()",
 
 	config = function()
 		-- set to 1, nvim will open the preview window after entering the markdown buffer
@@ -42,7 +42,7 @@ return {
 		-- valid: `/path/with\ space/xxx`
 		-- invalid: `/path/with\\ space/xxx`
 		-- default: ''
-		vim.g.mkdp_browser = ''
+		vim.g.mkdp_browser = '/usr/bin/zen-browser'
 
 		-- set to 1, echo preview page url in command line when open preview page
 		-- default is 0

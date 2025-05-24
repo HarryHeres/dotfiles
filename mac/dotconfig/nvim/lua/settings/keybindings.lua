@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>fe", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>fe", ":Oil<CR>")
 
 -- Clipboard managing
 vim.keymap.set('n', '<leader>yy', '"+yy<CR>', { noremap = true })
@@ -36,16 +36,10 @@ vim.keymap.set("n", "<leader>sx", ":split<CR> :term<CR>")
 vim.keymap.set("n", "<leader>vx", ":vsplit<CR> :term<CR>")
 
 -- Window resizing
--- vim.api.nvim_set_keymap("n", "<C-S-h>", ":vertical resize -5<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<C-S-j>", ":vertical resize -5<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<C-S-k>", ":vertical resize -5<CR>", { noremap = true, silent = true })
--- vim.api.nvim_set_keymap("n", "<C-S-l>", ":vertical resize -5<CR>", { noremap = true, silent = true })
-
--- Alacritty + Tmux
-vim.keymap.set("n", "^[[104;6D", ":vertical resize -5<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "^[[106;6D", ":horizontal resize +5<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "^[[107;6D", ":horizontal resize -5<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "^[[108;6D", ":vertical resize +5<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-h>", ":vertical resize -5<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-j>", ":horizontal resize +5<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-k>", ":horizontal resize -5<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-l>", ":vertical resize +5<CR>", { noremap = true, silent = true })
 
 vim.keymap.set('n', '<C-B>', function() require 'dap'.toggle_breakpoint() end, { noremap = true })
 vim.keymap.set('n', '<F4>', function() require 'dap'.repl() end, { noremap = true })
@@ -55,8 +49,26 @@ vim.keymap.set('n', '<F10>', function() require 'dap'.step_over() end, { noremap
 vim.keymap.set('n', '<F11>', function() require 'dap'.step_into() end, { noremap = true })
 vim.keymap.set('n', '<F12>', function() require 'dap'.step_out() end, { noremap = true })
 
--- Tmux sessionizer
 vim.keymap.set('n', '<leader>h', ":Telescope neoclip<CR>", { noremap = true })
+
+-- Tmux sessionizer
+vim.keymap.set("n", "<A-f>", "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
 
 -- Reset word highlight
 vim.keymap.set("n", "<leader>n", "<cmd>noh<CR>")
+
+-- LSP Bindings
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(event)
+		local opts = { buffer = bufnr, remap = false }
+		vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
+		vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+		vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+		vim.keymap.set("n", "<S-h>", function() vim.lsp.buf.hover() end, opts)
+		vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+		vim.keymap.set("n", "<F2>", function() vim.lsp.buf.rename() end, opts)
+		vim.keymap.set("n", "<C-i>", function() vim.lsp.buf.signature_help() end, opts)
+		vim.keymap.set('n', "<leader>qf", function() vim.lsp.buf.code_action() end, opts)
+		vim.keymap.set('n', "<C-S-d>", function() vim.diagnostic.open_float() end, opts)
+	end
+})

@@ -22,7 +22,6 @@ return {
 				projectName = "",
 				setupCommands = pretty_printing,
 			},
-
 			{
 				type = "java",
 				name = "Debug (Attach) 127.0.0.1:8788",
@@ -31,21 +30,13 @@ return {
 				port = "8788",
 				projectName = "",
 				setupCommands = pretty_printing,
-			},
+			}
 		}
 
 		dap.adapters.lldb = {
+			name = 'lldb',
 			type = 'executable',
-			command = '/Library/Developer/CommandLineTools/usr/bin/lldb-dap',
-			name = 'lldb'
-		}
-
-
-		dap.adapters.codelldb = {
-			type = 'executable',
-			command = '/Users/harry/Projects/Tools/Neovim/codelldb/extension/adapter/codelldb',
-			args = { '--liblldb=/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/Resources/liblldbCoreDevicePlugin.dylib' },
-			name = 'codelldb'
+			command = 'lldb-dap'
 		}
 
 		dap.configurations.cpp = {
@@ -53,9 +44,7 @@ return {
 				name = "Debug (Local)",
 				type = "lldb",
 				request = "launch",
-				program = function()
-					return vim.fn.getcwd() .. '/bin/main'
-				end,
+				program = vim.fn.getcwd() .. '/bin/main',
 				cwd = '${workspaceFolder}',
 				stopAtEntry = false,
 				setupCommands = pretty_printing
@@ -63,7 +52,6 @@ return {
 		}
 
 		dap.configurations.c = dap.configurations.cpp
-
 		dap.configurations.rust = {
 			{
 				name = "Debug (Local)",
@@ -73,7 +61,6 @@ return {
 					return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 				end,
 				cwd = '${workspaceFolder}',
-
 				stopAtEntry = true,
 				setupCommands = pretty_printing,
 				initCommands = function()
@@ -96,21 +83,6 @@ return {
 
 					return commands
 				end,
-			},
-		}
-
-		dap.configurations.swift = {
-			{
-				name = "Debug (Local)",
-				type = "lldb",
-				request = "launch",
-				sourceLanguages = { 'swift' },
-				program = function()
-					return vim.fn.getcwd() .. '/.build/debug/swift-debug'
-				end,
-				cwd = '${workspaceFolder}',
-				stopAtEntry = false,
-				setupCommands = pretty_printing
 			},
 		}
 
@@ -208,7 +180,6 @@ return {
 				})
 			end
 		end
-
 
 
 		vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#000000', bg = '#f38ba8' })
