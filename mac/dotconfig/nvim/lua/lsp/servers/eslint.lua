@@ -47,21 +47,37 @@ return {
 		'astro',
 	},
 	workspace_required = true,
+	on_attach = function(client)
+		vim.api.nvim_buf_create_user_command(0, 'LspEslintFixAll', function()
+			local bufnr = vim.api.nvim_get_current_buf()
 
+			client:exec_cmd({
+				title = 'Fix all Eslint errors for current buffer',
+				command = 'eslint.applyAllFixes',
+				arguments = {
+					{
+						uri = vim.uri_from_bufnr(bufnr),
+						version = "unknown"
+					},
+				},
+			}, { bufnr = bufnr })
+		end, {})
+	end,
+	-- https://eslint.org/docs/user-guide/configuring/configuration-files#configuration-file-formats
 	root_markers = {
-			'.eslintrc',
-			'.eslintrc.js',
-			'.eslintrc.cjs',
-			'.eslintrc.yaml',
-			'.eslintrc.yml',
-			'.eslintrc.json',
-			'eslint.config.js',
-			'eslint.config.mjs',
-			'eslint.config.cjs',
-			'eslint.config.ts',
-			'eslint.config.mts',
-			'eslint.config.cts',
-		},
+		'.eslintrc',
+		'.eslintrc.js',
+		'.eslintrc.cjs',
+		'.eslintrc.yaml',
+		'.eslintrc.yml',
+		'.eslintrc.json',
+		'eslint.config.js',
+		'eslint.config.mjs',
+		'eslint.config.cjs',
+		'eslint.config.ts',
+		'eslint.config.mts',
+		'eslint.config.cts',
+	},
 
 	-- Refer to https://github.com/Microsoft/vscode-eslint#settings-options for documentation.
 	settings = {
