@@ -1,58 +1,60 @@
 JDTLS_CONFIGS = {}
 
 return {
-	'harryheres/nvim-jdtls',
-	dir = vim.fn.expand('~/Projects/FOSS/nvim-jdtls/'),
-	name = 'jdtls',
+	"harryheres/nvim-jdtls",
+	dir = vim.fn.expand("~/Projects/FOSS/nvim-jdtls/"),
+	name = "jdtls",
 
 	config = function()
-		local jdtls = require('jdtls')
-		local java_cmds = vim.api.nvim_create_augroup('java_cmds', { clear = true })
-		local project_dir = vim.fn.expand('~/.local/share/nvim/jdtls_projects')
+		local jdtls = require("jdtls")
+		local java_cmds = vim.api.nvim_create_augroup("java_cmds", { clear = true })
+		local workspace_dir = vim.fn.getcwd() .. "/.nvim/java/jdtls"
+		local java_home = vim.fn.expand("~/.sdkman/candidates/java/21.0.7-tem/")
 
-		local java_formatter = vim.fn.expand('~/Projects/Templates/java_formatter.xml')
-		local java23_home = '/opt/homebrew/Cellar/openjdk/23.0.2/'
-
-		local java_settings_prefs_path = vim.fn.expand('~/Projects/Templates/settings.prefs')
+		local java_settings_prefs_path = vim.fn.expand("~/Projects/Templates/settings.prefs")
 
 		-- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 		local config = {
 			-- The command that starts the language server
 			-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 			cmd = {
-				java23_home .. 'bin/java',
-				'-Declipse.application=org.eclipse.jdt.ls.core.id1',
-				'-Dosgi.bundles.defaultStartLevel=4',
-				'-Declipse.product=org.eclipse.jdt.ls.core.product',
-				'-Dlog.protocol=true',
-				'-Dlog.level=ALL',
-				'-Dorg.eclipse.jdt.core.compiler.problem.missingSerialVersion=warning',
-				'-Xmx4g',
-				'--add-modules=ALL-SYSTEM',
-				'--add-opens', 'java.base/java.util=ALL-UNNAMED',
-				'--add-opens', 'java.base/java.lang=ALL-UNNAMED',
-				'-jar',
+				java_home .. "bin/java",
+				"-Declipse.application=org.eclipse.jdt.ls.core.id1",
+				"-Dosgi.bundles.defaultStartLevel=4",
+				"-Declipse.product=org.eclipse.jdt.ls.core.product",
+				"-Dlog.protocol=true",
+				"-Dlog.level=ALL",
+				"-Dorg.eclipse.jdt.core.compiler.problem.missingSerialVersion=warning",
+				"-Xmx4g",
+				"--add-modules=ALL-SYSTEM",
+				"--add-opens",
+				"java.base/java.util=ALL-UNNAMED",
+				"--add-opens",
+				"java.base/java.lang=ALL-UNNAMED",
+				"-jar",
 				vim.fn.expand(
-					'~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.6.1100.v20250306-0509.jar'),
-				'-configuration',
+					"~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/plugins/org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar"
+				),
+				"-configuration",
 				vim.fn.expand(
-					'~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/config_mac_arm'),
-				'-data', project_dir
+					"~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/config_mac_arm"
+				),
+				"-data",
+				workspace_dir,
 			},
 
 			-- 💀
-			-- This is the default if not provided, you can remove it. Or adjust as needed.
 			-- One dedicated LSP server & client will be started per unique root_dir
-			root_dir = vim.fs.root(0, { "mvnw", "pom.xml" }),
+			root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 
 			on_attach = function(client, bufrn)
 				if #JDTLS_CONFIGS > 0 then
-					vim.notify('Tried to attach jdtls to buffer ' .. bufrn)
+					vim.notify("Tried to attach jdtls to buffer " .. bufrn)
 					return
 				end
 
-				local jdtls_dap = require('jdtls.dap')
-				local dap = require('dap')
+				local jdtls_dap = require("jdtls.dap")
+				local dap = require("dap")
 
 				jdtls_dap.fetch_main_configs(function(configurations)
 					for _, config in ipairs(configurations) do
@@ -67,16 +69,14 @@ return {
 				end)
 
 				-- Hot code replacing
-				dap.listeners.before["event_processid"]["jdtls"] = function()
-				end
-				dap.listeners.before["event_telemetry"]["jdtls"] = function()
-				end
+				dap.listeners.before["event_processid"]["jdtls"] = function() end
+				dap.listeners.before["event_telemetry"]["jdtls"] = function() end
 
-				dap.listeners.before['event_hotcodereplace']['jdtls'] = function(session, body)
+				dap.listeners.before["event_hotcodereplace"]["jdtls"] = function(session, body)
 					vim.notify(body.changeType)
 					if body.changeType == jdtls_dap.hotcodereplace_type.BUILD_COMPLETE then
-						vim.notify('Applying code changes')
-						session:request('redefineClasses', nil, function(err)
+						vim.notify("Applying code changes")
+						session:request("redefineClasses", nil, function(err)
 							assert(not err, vim.inspect(err))
 						end)
 					elseif body.message then
@@ -97,64 +97,50 @@ return {
 					},
 
 					signatureHelp = {
-						enabled = 'true'
+						enabled = "true",
 					},
 
 					configuration = {
-						runtimes = {
-							-- {
-							-- 	name = "JavaSE-21",
-							-- 	path = '/opt/homebrew/Cellar/openjdk@21/21.0.6/'
-							-- },
-							-- {
-							-- 	name = "JavaSE-17",
-							-- 	path = '/opt/homebrew/Cellar/openjdk@17/17.0.14/'
-							-- },
-							-- {
-							-- 	name = "JavaSE-11",
-							-- 	path = '/opt/homebrew/Cellar/openjdk@11/11.0.26/'
-							-- },
-						},
+						runtimes = {},
 					},
 
 					saveActions = {
-						organizeImports = 'true',
+						organizeImports = "true",
 					},
 
 					sources = {
 						organizeImports = {
 							starThreshold = 9999,
-							staticStarThreshold = 9999
-						}
+							staticStarThreshold = 9999,
+						},
 					},
 
 					import = {
 						maven = {
-							enabled = 'false',
+							enabled = "false",
 						},
 						exclusions = {
 							"**/node_modules/**",
 							"**/.metadata/**",
 							"**/archetype-resources/**",
 							"**/META-INF/maven/**",
-							"/**/test/**"
-						}
+							"/**/test/**",
+						},
 					},
 
 					format = {
-						enabled = 'true',
+						enabled = "true",
 						settings = {
-							url = java_formatter,
+							url = vim.fn.getcwd() .. "/.nvim/java/formatter.xml",
 						},
 					},
 
 					cleanup = {
-						addOverride = '@Override',
-						addDeprecated = '@Deprecated',
-						addFinalModifier = 'final',
-					}
+						addOverride = "@Override",
+						addDeprecated = "@Deprecated",
+						addFinalModifier = "final",
+					},
 				},
-
 			},
 
 			-- Language server `initializationOptions`
@@ -167,9 +153,10 @@ return {
 			init_options = {
 				bundles = {
 					vim.fn.glob(
-						'~/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar',
-						1),
-				}
+						"~/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
+						1
+					),
+				},
 			},
 		}
 
@@ -182,11 +169,11 @@ return {
 			jdtls.start_or_attach(config)
 		end
 
-		vim.api.nvim_create_autocmd('FileType', {
+		vim.api.nvim_create_autocmd("FileType", {
 			group = java_cmds,
-			pattern = { 'java' },
-			desc = 'Setup JDTLS',
+			pattern = { "java" },
+			desc = "Setup JDTLS",
 			callback = jdtls_setup,
 		})
-	end
+	end,
 }

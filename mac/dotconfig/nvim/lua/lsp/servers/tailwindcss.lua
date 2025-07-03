@@ -8,7 +8,6 @@ return {
 	cmd = { 'tailwindcss-language-server', '--stdio' },
 	-- filetypes copied and adjusted from tailwindcss-intellisense
 	filetypes = {
-		-- html
 		'aspnetcorerazor',
 		'astro',
 		'astro-markdown',
@@ -17,11 +16,11 @@ return {
 		'django-html',
 		'htmldjango',
 		'edge',
-		'eelixir', -- vim ft
+		'eelixir',
 		'elixir',
 		'ejs',
 		'erb',
-		'eruby', -- vim ft
+		'eruby',
 		'gohtml',
 		'gohtmltmpl',
 		'haml',
@@ -43,7 +42,6 @@ return {
 		'razor',
 		'slim',
 		'twig',
-		-- css
 		'css',
 		'less',
 		'postcss',
@@ -51,14 +49,12 @@ return {
 		'scss',
 		'stylus',
 		'sugarss',
-		-- js
 		'javascript',
 		'javascriptreact',
 		'reason',
 		'rescript',
 		'typescript',
 		'typescriptreact',
-		-- mixed
 		'vue',
 		'svelte',
 		'templ',
@@ -93,4 +89,5 @@ return {
 		},
 	},
 	workspace_required = true,
+	root_markers = { ".git" }
 }
