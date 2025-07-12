@@ -8,8 +8,12 @@ return {
 	config = function()
 		local jdtls = require("jdtls")
 		local java_cmds = vim.api.nvim_create_augroup("java_cmds", { clear = true })
-		local workspace_dir = vim.fn.getcwd() .. "/.nvim/java/jdtls"
 		local java_home = vim.fn.expand("~/.sdkman/candidates/java/21.0.7-tem/")
+
+		local project_root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
+
+		local formatter_path = project_root_dir .. "/.nvim/java/formatter.xml"
+		local jdtls_data_dir = project_root_dir .. "/.nvim/java/jdtls"
 
 		local java_settings_prefs_path = vim.fn.expand("~/Projects/Templates/settings.prefs")
 
@@ -40,17 +44,21 @@ return {
 					"~/Projects/Tools/Neovim/jdtls/org.eclipse.jdt.ls.product/target/repository/config_mac_arm"
 				),
 				"-data",
-				workspace_dir,
+				jdtls_data_dir,
 			},
 
 			-- 💀
 			-- One dedicated LSP server & client will be started per unique root_dir
-			root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
+			root_dir = project_root_dir,
 
 			on_attach = function(client, bufrn)
 				if #JDTLS_CONFIGS > 0 then
 					vim.notify("Tried to attach jdtls to buffer " .. bufrn)
 					return
+				end
+
+				if vim.fn.filereadable(formatter_path) ~= 1 then
+					vim.notify("ERROR: Java formatter.xml not found at: " .. formatter_path)
 				end
 
 				local jdtls_dap = require("jdtls.dap")
@@ -131,7 +139,7 @@ return {
 					format = {
 						enabled = "true",
 						settings = {
-							url = vim.fn.getcwd() .. "/.nvim/java/formatter.xml",
+							url = formatter_path,
 						},
 					},
 
