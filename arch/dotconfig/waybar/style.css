@@ -36,20 +36,20 @@ window#waybar {
 
 #custom-power {
   color: @blue;
-  padding-right: 10px;
+  padding-right: 5px;
   margin-left: 5px;
   margin-right: 5px;
 }
 
 #custom-launcher {
   color: @white;
-  padding-right: 10px;
+  padding-right: 5px;
   margin-right: 5px;
 }
 
 #idle_inhibitor {
   color: @yellow;
-  padding-right: 10px;
+  padding-right: 5px;
   margin-right: 5px;
 }
 

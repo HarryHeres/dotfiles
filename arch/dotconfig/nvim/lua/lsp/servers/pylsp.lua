@@ -1,27 +1,38 @@
 return {
-	configurationSources = { "flake8" },
+	cmd = { 'pylsp' },
+	filetypes = { 'python' },
+	root_markers = {
+		'pyproject.toml',
+		'setup.py',
+		'setup.cfg',
+		'requirements.txt',
+		'Pipfile',
+		'.git',
+	},
+	configurationSources = { "pycodestyle" },
 	settings = {
 		pylsp = {
 			plugins = {
 				flake8 = {
-					enabled = true,
+					enabled = false,
 					maxLineLength = 999,
 					maxComplexity = 15
 				},
 				pycodestyle = {
-					enabled = false,
+					enabled = true,
+					maxLineLength = 999
 				},
 				pyflakes = {
-					enabled = false
+					enabled = true
 				},
 				mccabe = {
-					enabled = false
+					enabled = true,
 				},
 				pylint = {
 					enabled = false
 				},
 				rope_autoimport = {
-					enabled = true
+					enabled = false
 				},
 				jedi_completion = {
 					enabled = true,

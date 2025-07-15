@@ -1,12 +1,10 @@
-require('lsp.auto_format')
 require('lsp.diagnostics')
-require('lsp.')
+require('lsp.capabilities')
 
-local path = vim.fn.getcwd() .. '/lua/lsp/servers'
+local path = vim.fn.expand('~/.config/nvim/lua/lsp/servers')
 local pfile = io.popen('ls ' .. path)
 
 if pfile ~= nil then
-
 	for filename in pfile:lines() do
 		local filetype = string.sub(filename, #filename - 2, #filename)
 		if (filetype == 'lua') then

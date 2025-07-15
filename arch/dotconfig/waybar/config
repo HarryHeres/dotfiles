@@ -3,7 +3,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 40,
     "margin": "0 0 0 0",
-    "modules-left": ["custom/power","custom/launcher","idle_inhibitor", "user", "hyprland/workspaces", "hyprland/window", "tray"],
+    "modules-left": ["custom/power","custom/launcher","idle_inhibitor", "user", "hyprland/workspaces", "tray"],
     "modules-center": ["clock"],
     "modules-right": ["hyprland/language", "pulseaudio", "temperature", "cpu", "memory", "network", ], 
 
@@ -38,10 +38,6 @@
 		"on-click": "activate"
     },
 
-	"hyprland/window": {
-		"format": "{title}"
-	},
-
     "tray": {
         "spacing": 10
     },
@@ -62,7 +58,7 @@
 
 
     "pulseaudio": {
-        "format": "{desc}: {volume}% {icon} {format_source}",
+        "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
