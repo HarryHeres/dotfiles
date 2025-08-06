@@ -1,5 +1,5 @@
 return {
-	'hrsh7th/nvim-cmp',
+	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
@@ -12,31 +12,34 @@ return {
 	},
 
 	config = function()
-		local cmp = require('cmp')
+		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
+			completion = {
+				autocomplete = false,
+			},
 			snippet = {
 				expand = function(args)
-					require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+					require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
-				['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-				['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-				['<Enter>'] = cmp.mapping.confirm({ select = true }),
+				["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
+				["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
+				["<Enter>"] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
-				{ name = 'nvim_lsp' },
+				{ name = "nvim_lsp" },
 				{
-					name = 'luasnip',
-					option = { show_autosnippets = true }
+					name = "luasnip",
+					option = { show_autosnippets = true },
 				},
-				{ name = 'path' },
-				{ name = 'buffer' },
-				{ name = 'nvim-lua' },
-				{ name = 'nvim_lsp_signature_help' }
-			})
+				{ name = "path" },
+				{ name = "buffer" },
+				{ name = "nvim-lua" },
+				{ name = "nvim_lsp_signature_help" },
+			}),
 		})
-	end
+	end,
 }

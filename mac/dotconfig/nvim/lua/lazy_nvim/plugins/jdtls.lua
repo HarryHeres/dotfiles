@@ -10,7 +10,8 @@ return {
 		local java_cmds = vim.api.nvim_create_augroup("java_cmds", { clear = true })
 		local java_home = vim.fn.expand("~/.sdkman/candidates/java/21.0.7-tem/")
 
-		local project_root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1])
+		local project_root_dir = vim.fs.dirname(vim.fs.find({ ".git" }, { upward = true })[1]) or ""
+		local jdtls_root_dir = vim.fs.dirname(vim.fs.find({ "pom.xml" })[1]) or project_root_dir or ""
 
 		local formatter_path = project_root_dir .. "/.nvim/java/formatter.xml"
 		local jdtls_data_dir = project_root_dir .. "/.nvim/java/jdtls"
@@ -49,7 +50,7 @@ return {
 
 			-- 💀
 			-- One dedicated LSP server & client will be started per unique root_dir
-			root_dir = project_root_dir,
+			root_dir = jdtls_root_dir,
 
 			on_attach = function(client, bufrn)
 				if #JDTLS_CONFIGS > 0 then
