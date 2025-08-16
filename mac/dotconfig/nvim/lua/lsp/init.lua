@@ -1,20 +1,19 @@
 require("lsp.diagnostics")
-require("lsp.capabilities")
 
 local path = vim.fn.expand("~/.config/nvim/lua/lsp/servers")
 local pfile = io.popen("ls " .. path)
 
 if pfile ~= nil then
-	for filename in pfile:lines() do
-		local filetype = string.sub(filename, #filename - 2, #filename)
-		if filetype == "lua" then
-			local lsp_name = string.sub(filename, 0, -5)
-			local config = require("lsp.servers." .. lsp_name)
+    for filename in pfile:lines() do
+        local filetype = string.sub(filename, #filename - 2, #filename)
+        if filetype == "lua" then
+            local lsp_name = string.sub(filename, 0, -5)
+            local config = require("lsp.servers." .. lsp_name)
 
-			vim.lsp.config(lsp_name, config)
-			vim.lsp.enable(lsp_name)
-		end
-	end
+            vim.lsp.config(lsp_name, config)
+            vim.lsp.enable(lsp_name)
+        end
+    end
 
-	pfile:close()
+    pfile:close()
 end
