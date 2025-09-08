@@ -38,106 +38,98 @@ vim.keymap.set("n", "<C-S-k>", ":horizontal resize -5<CR>", { noremap = true, si
 vim.keymap.set("n", "<C-S-l>", ":vertical resize +5<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<C-B>", function()
-	require("dap").toggle_breakpoint()
+    require("dap").toggle_breakpoint()
 end, { noremap = true })
 
 vim.keymap.set("n", "<F5>", function()
-	require("dap").continue()
+    require("dap").continue()
 end, { noremap = true })
 
 vim.keymap.set("n", "<F6>", function()
-	require("dapui").toggle()
+    require("dapui").toggle()
 end, { noremap = true })
 
 vim.keymap.set("n", "<F10>", function()
-	require("dap").step_over()
+    require("dap").step_over()
 end, { noremap = true })
 
 vim.keymap.set("n", "<F11>", function()
-	require("dap").step_into()
+    require("dap").step_into()
 end, { noremap = true })
 
 vim.keymap.set("n", "<F12>", function()
-	require("dap").step_out()
+    require("dap").step_out()
 end, { noremap = true })
 
 -- Reset word highlight
 vim.keymap.set("n", "<leader>n", "<cmd>noh<CR>")
 
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(event)
-		local opts = { buffer = bufnr, remap = false }
-		vim.keymap.set("n", "gi", function()
-			vim.lsp.buf.implementation()
-		end, opts)
-		vim.keymap.set("n", "gd", function()
-			vim.lsp.buf.definition()
-		end, opts)
-		vim.keymap.set("n", "gD", function()
-			vim.lsp.buf.declaration()
-		end, opts)
-		vim.keymap.set("n", "<S-h>", function()
-			vim.lsp.buf.hover()
-		end, opts)
-		vim.keymap.set("n", "gr", function()
-			vim.lsp.buf.references()
-		end, opts)
-		vim.keymap.set("n", "<F2>", function()
-			vim.lsp.buf.rename()
-		end, opts)
-		vim.keymap.set("n", "<C-i>", function()
-			vim.lsp.buf.signature_help()
-		end, opts)
-		vim.keymap.set("n", "<leader>qf", function()
-			vim.lsp.buf.code_action()
-		end, opts)
-		vim.keymap.set("n", "<C-S-d>", function()
-			vim.diagnostic.open_float()
-		end, opts)
-	end,
+    callback = function(event)
+        local opts = { buffer = bufnr, remap = false }
+        vim.keymap.set("n", "gi", function()
+            vim.lsp.buf.implementation()
+        end, opts)
+        vim.keymap.set("n", "gd", function()
+            vim.lsp.buf.definition()
+        end, opts)
+        vim.keymap.set("n", "gD", function()
+            vim.lsp.buf.declaration()
+        end, opts)
+        vim.keymap.set("n", "<S-h>", function()
+            vim.lsp.buf.hover()
+        end, opts)
+        vim.keymap.set("n", "gr", function()
+            vim.lsp.buf.references()
+        end, opts)
+        vim.keymap.set("n", "<F2>", function()
+            vim.lsp.buf.rename()
+        end, opts)
+        vim.keymap.set("n", "<C-i>", function()
+            vim.lsp.buf.signature_help()
+        end, opts)
+        vim.keymap.set("n", "<leader>qf", function()
+            vim.lsp.buf.code_action()
+        end, opts)
+        vim.keymap.set("n", "<C-S-d>", function()
+            vim.diagnostic.open_float()
+        end, opts)
+    end,
 })
 
 -- Telescope
 vim.keymap.set("n", "<leader>h", ":Telescope neoclip<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ff", function()
-	local is_inside_work_tree = {}
-	local opts = {} -- define here if you want to define something
+    require("telescope.builtin").find_files()
+end)
 
-	local cwd = vim.fn.getcwd()
-	if is_inside_work_tree[cwd] == nil then
-		vim.fn.system("git rev-parse --is-inside-work-tree")
-		is_inside_work_tree[cwd] = vim.v.shell_error == 0
-	end
+vim.keymap.set("n", "<leader>G", function()
+    require("telescope.builtin").git_files()
+end)
 
-	if is_inside_work_tree[cwd] then
-		require("telescope.builtin").git_files(opts)
-	else
-		require("telescope.builtin").find_files(opts)
-	end
-end, {})
 vim.keymap.set("n", "<leader>ps", require("telescope.builtin").live_grep, {})
 
 -- Harpoon
 vim.keymap.set("n", "<leader>a", function()
-	require("harpoon"):list():add()
+    require("harpoon"):list():add()
 end)
 
 vim.keymap.set("n", "<leader>e", function()
-	require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+    require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
 end)
 
 vim.keymap.set("n", "<leader>1", function()
-	require("harpoon"):list():select(1)
+    require("harpoon"):list():select(1)
 end)
 
 vim.keymap.set("n", "<leader>2", function()
-	require("harpoon"):list():select(2)
+    require("harpoon"):list():select(2)
 end)
 
 vim.keymap.set("n", "<leader>3", function()
-	require("harpoon"):list():select(3)
+    require("harpoon"):list():select(3)
 end)
 
 vim.keymap.set("n", "<leader>4", function()
-	require("harpoon"):list():select(4)
+    require("harpoon"):list():select(4)
 end)
