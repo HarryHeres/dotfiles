@@ -24,6 +24,7 @@ export WINEPREFIX=/home/harry/.wine
 
 export ANDROID_HOME=/home/harry/Android/Sdk
 export ANDROID_SDK_ROOT=$ANDROID_HOME
+export LC_ALL=C.UTF-8
 # . "$HOME/.cargo/env"
 
 eval "$(direnv hook zsh)"
