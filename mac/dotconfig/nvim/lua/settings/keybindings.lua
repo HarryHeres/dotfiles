@@ -100,36 +100,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Telescope
 vim.keymap.set("n", "<leader>h", ":Telescope neoclip<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ff", function()
-    require("telescope.builtin").find_files()
+    require("telescope.builtin").find_files({ hidden = true, no_ignore = false })
 end)
 
 vim.keymap.set("n", "<leader>G", function()
-    require("telescope.builtin").git_files()
+    require("telescope.builtin").find_files({ hidden = true, no_ignore = true })
 end)
 
 vim.keymap.set("n", "<leader>ps", require("telescope.builtin").live_grep, {})
-
--- Harpoon
-vim.keymap.set("n", "<leader>a", function()
-    require("harpoon"):list():add()
-end)
-
-vim.keymap.set("n", "<leader>e", function()
-    require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-end)
-
-vim.keymap.set("n", "<leader>1", function()
-    require("harpoon"):list():select(1)
-end)
-
-vim.keymap.set("n", "<leader>2", function()
-    require("harpoon"):list():select(2)
-end)
-
-vim.keymap.set("n", "<leader>3", function()
-    require("harpoon"):list():select(3)
-end)
-
-vim.keymap.set("n", "<leader>4", function()
-    require("harpoon"):list():select(4)
-end)
