@@ -100,7 +100,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Telescope
 vim.keymap.set("n", "<leader>h", ":Telescope neoclip<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ff", function()
-    require("telescope.builtin").find_files({ hidden = true, no_ignore = false })
+    require("telescope.builtin").find_files({ hidden = false, no_ignore = false })
 end)
 
 vim.keymap.set("n", "<leader>G", function()

@@ -1,7 +1,7 @@
 return {
-	"nvim-telescope/telescope.nvim",
+    "nvim-telescope/telescope.nvim",
 
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
 }
