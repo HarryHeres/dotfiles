@@ -120,8 +120,14 @@ return {
                     -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
                     -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
                     -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-                    local path = os.getenv("VIRTUAL_ENV") .. "/bin/python"
-                    return path
+                    local cwd = vim.fn.getcwd()
+                    if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+                        return cwd .. "/venv/bin/python"
+                    elseif vim.fn.executable(cwd .. "/python/bin/python") == 1 then
+                        return cwd .. "/python/bin/python"
+                    else
+                        return "/usr/bin/env python"
+                    end
                 end,
             },
 
@@ -137,7 +143,14 @@ return {
                     -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
                     -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
                     -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
-                    return os.getenv("VIRTUAL_ENV") .. "/bin/python"
+                    local cwd = vim.fn.getcwd()
+                    if vim.fn.executable(cwd .. "/venv/bin/python") == 1 then
+                        return cwd .. "/venv/bin/python"
+                    elseif vim.fn.executable(cwd .. "/python/bin/python") == 1 then
+                        return cwd .. "/python/bin/python"
+                    else
+                        return "/usr/bin/env python"
+                    end
                 end,
             },
         }
@@ -167,6 +180,51 @@ return {
                 })
             end
         end
+
+        dap.adapters.delve = function(callback, config)
+            if config.mode == 'remote' and config.request == 'attach' then
+                callback({
+                    type = 'server',
+                    host = config.host or '127.0.0.1',
+                    port = config.port or '38697'
+                })
+            else
+                callback({
+                    type = 'server',
+                    port = '${port}',
+                    executable = {
+                        command = 'dlv',
+                        args = { 'dap', '-l', '127.0.0.1:${port}', '--log', '--log-output=dap' },
+                        detached = vim.fn.has("win32") == 0,
+                    }
+                })
+            end
+        end
+
+
+        dap.configurations.go = {
+            {
+                type = "delve",
+                name = "Debug",
+                request = "launch",
+                program = "${file}"
+            },
+            {
+                type = "delve",
+                name = "Debug test",
+                request = "launch",
+                mode = "test",
+                program = "${file}"
+            },
+            {
+                type = "delve",
+                name = "Debug test (go.mod)",
+                request = "launch",
+                mode = "test",
+                program = "./${relativeFileDirname}"
+            }
+        }
+
 
         vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#000000", bg = "#f38ba8" })
         vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#000000", bg = "#89b4fa" })
