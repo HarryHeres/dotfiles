@@ -7,6 +7,7 @@ export PATH=$HOME/.local/share/nvim/mason/bin:$PATH
 export PATH=$HOME/.cargo/bin/:$PATH
 export PATH="/opt/homebrew/opt/ruby/bin/":$PATH
 export PATH="$HOME/Projects/Tools/apache-cxf/latest/bin/":$PATH
+export PATH="/opt/homebrew/Cellar/llvm/21.1.0/bin":$PATH
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2"
