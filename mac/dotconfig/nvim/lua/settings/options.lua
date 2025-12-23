@@ -33,6 +33,5 @@ vim.api.nvim_command("set spell")
 
 vim.api.nvim_command("autocmd BufNewFile,BufRead *.tpp set filetype=cpp")
 vim.api.nvim_command("autocmd BufNewFile,BufRead *.blade.php set filetype=php")
-vim.api.nvim_command("autocmd BufNewFile,BufRead Dockerfile-* set filetype=dockerfile")
 
 vim.api.nvim_command("set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<")
