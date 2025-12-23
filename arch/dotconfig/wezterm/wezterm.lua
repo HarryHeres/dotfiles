@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.color_scheme = "Gruvbox Material (Gogh)"
+config.color_scheme = "Tokyo Night Moon"
 config.tab_bar_at_bottom = true
 config.enable_wayland = false
 
